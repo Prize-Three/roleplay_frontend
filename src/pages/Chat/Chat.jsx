@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Layout from '../../components/Layout/Layout';
 import { useNavigate } from 'react-router-dom';
 import styles from './Chat.module.scss';
 
@@ -44,6 +45,7 @@ function Chat() {
   };
 
   return (
+    <Layout>
     <div className={styles.chatContainer}>
       <h1>역할놀이 챗봇</h1>
       <button className={styles.stopButton} onClick={handleStopClick}>그만하기</button>
@@ -66,6 +68,8 @@ function Chat() {
       </div>
       {loading && <div id="loading">로딩 중...</div>}
     </div>
+
+    </Layout>
   );
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Situation.module.scss'
+import Layout from '../../components/Layout/Layout';
 
 function Situation() {
     const navigate = useNavigate();
@@ -9,12 +10,14 @@ function Situation() {
     };
 
     return (
-        <div className={styles.situationDiv}>
-            <button onClick={handleButtonClick}>병원놀이</button>
-            <button onClick={handleButtonClick}>요리놀이</button>
-            <button onClick={handleButtonClick}>가족놀이</button>
-            <button onClick={handleButtonClick}>시장놀이</button>
-        </div>
+        <Layout>
+            <div className={styles.situationWrap}>
+                <button onClick={handleButtonClick}>병원놀이</button>
+                <button onClick={handleButtonClick}>요리놀이</button>
+                <button onClick={handleButtonClick}>가족놀이</button>
+                <button onClick={handleButtonClick}>시장놀이</button>
+            </div>
+        </Layout>
     )
 }
 
