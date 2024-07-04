@@ -26,6 +26,7 @@ function Situation() {
     // 음성 선택지 데이터
     const voiceOptions = ['음성A', '음성B', '음성C', '음성D'];
 
+
     const handleRolePlaySelect = (gameType) => {
         if (gameType === selectedGameType) {
             setSelectedGameType(null); // 이미 선택된 게임 타입을 다시 클릭하면 선택 취소
@@ -60,7 +61,11 @@ function Situation() {
                         <h2 className={styles.subtitle}>놀이를 선택해주세요</h2>
                         <div className={styles.gameTypeBox}>
                             {Object.keys(roleOptions).map((gameType) => (
-                                <button key={gameType} onClick={() => handleRolePlaySelect(gameType)} className={styles.gameTypeButton}>
+                                <button
+                                    key={gameType}
+                                    onClick={() => handleRolePlaySelect(gameType)}
+                                    className={`${styles.gameTypeButton} ${gameType === selectedGameType ? styles.selected : ''}`}
+                                >
                                     {gameType}
                                 </button>
                             ))}

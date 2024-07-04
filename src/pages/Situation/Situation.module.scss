@@ -106,6 +106,24 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 호버시 더 강한 그림자 */
 }
 
+.gameTypeButton {
+    /* 기존 스타일 유지 */
+
+    &:hover {
+        /* 호버 효과 */
+        background: linear-gradient(to bottom, #FFDA79, #FF974B);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    &.selected {
+        /* 선택된 상태의 스타일 */
+        background: linear-gradient(to bottom, #FF6D6D, #FF5252);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transform: scale(1.05); /* 선택된 상태에서 약간 확대 */
+        color: white;
+    }
+}
+
 .gameTypeButton:active {
     background: linear-gradient(to bottom, #FFC74D, #F67B36); /* 클릭시 배경색 원래 주황색 */
     transform: translateY(2px); /* 클릭시 약간 아래로 이동 효과 */
