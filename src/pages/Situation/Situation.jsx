@@ -28,7 +28,7 @@ function Situation() {
             <div className={styles.situationWrap}>
                 <div className={styles.header}>
                     <h1 className={styles.title}>역할놀이</h1>
-                    <button onClick={handleExit} className={styles.exitButton}>나가기</button>
+                    <button onClick={handleExit} className={styles.exitButton}>돌아가기</button>
                 </div>
                 <div className={styles.content}>
                     <div className={styles.leftPanel}>
@@ -45,13 +45,13 @@ function Situation() {
                             <button onClick={() => handleRolePlaySelect('가족 놀이')} className={styles.gameTypeButton}>가족 놀이</button>
                             <button onClick={() => handleRolePlaySelect('소꿉 놀이')} className={styles.gameTypeButton}>소꿉 놀이</button>
                         </div>
-                        <button onClick={handleNextStep} className={styles.startButton}>시작하기</button>
                     </div>
                     {selectedGameType && (
                         <div className={styles.rightPanel}>
                             <h3>{selectedGameType}에 대한 세부 설정</h3>
                             <p>음성 설정</p>
                             <p>역할 설정</p>
+                            <button onClick={handleNextStep} className={styles.startButton}>시작하기</button>
                         </div>
                     )}
                 </div>

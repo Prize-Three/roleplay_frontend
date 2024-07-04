@@ -13,8 +13,8 @@ function Home() {
         <Layout>
             <div className={styles.homeWrap}>
                 <div className={styles.buttonWrap}>
-                    <button onClick={() => navigate('/voice-manage')}>음성 관리</button>
-                    <button onClick={() => navigate('/total-result')}>스크립트 관리</button>
+                    <button onClick={() => navigate('/voice-manage')}>🔊 음성 관리</button>
+                    <button onClick={() => navigate('/total-result')}>📝 스크립트 관리</button>
                 </div>
                 <div className={styles.homeContentWrap}>
                     <div className={styles.homeDiv}>
