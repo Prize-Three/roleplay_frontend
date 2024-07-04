@@ -1,3 +1,4 @@
+// Chat.module.scss
 .chatContainer {
   width: 100%;
   height: 100%;
@@ -7,9 +8,8 @@
   background-color: #DEE7FF; /* 카카오톡 배경색 */
   background-image: url('../../../public/assets/situation/situationImg.png');
   background-size: cover; /* 이미지가 요소를 덮도록 설정 */
-    background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
-    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
-  //padding: 20px;
+  background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
+  background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
   border-radius: 10px;
 }
 
@@ -30,7 +30,6 @@
   align-items: center;
   padding: 15px 20px;
   background: linear-gradient(to bottom, #FFC74D, #F67B36);
-  // background-color: #007bff; /* 헤더 배경색 */
   color: #752626;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -56,6 +55,8 @@
 .chatBody {
   flex: 1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .message {
@@ -71,6 +72,14 @@
   color: #007bff; /* 사용자와 컴퓨터 이름 색상 변경 */
 }
 
+.userMessage {
+  align-self: flex-end; /* 사용자 메시지를 오른쪽에 */
+}
+
+.computerMessage {
+  align-self: flex-start; /* 컴퓨터 메시지를 왼쪽에 */
+}
+
 .userInput {
   display: flex;
   align-items: center;
@@ -80,7 +89,7 @@
   border-bottom-right-radius: 20px;
 }
 
-#user-message {
+.userMessageInput {
   flex: 1;
   padding: 10px;
   border: none;

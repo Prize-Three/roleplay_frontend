@@ -1,3 +1,4 @@
+// Chat.jsx
 import React, { useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { useNavigate } from 'react-router-dom';
@@ -56,7 +57,7 @@ function Chat() {
                     </div>
                     <div className={styles.chatBody}>
                         {messages.map((msg, index) => (
-                            <div key={index} className={styles.message}>
+                            <div key={index} className={`${styles.message} ${msg.sender === '사용자' ? styles.userMessage : styles.computerMessage}`}>
                                 <strong>{msg.sender}:</strong> {msg.text}
                             </div>
                         ))}
@@ -68,7 +69,7 @@ function Chat() {
                             value={userMessage}
                             onChange={handleInputChange}
                             placeholder="메시지를 입력하세요..."
-                            className={styles.userMessage}
+                            className={styles.userMessageInput}
                         />
                         <button className={styles.sendButton} onClick={handleSendMessage}>
                             전송
