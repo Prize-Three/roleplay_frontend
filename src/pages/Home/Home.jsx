@@ -19,6 +19,7 @@ function Home() {
                 <div className={styles.homeContentWrap}>
                     <div className={styles.homeDiv}>
                         <h4>{title}</h4>
+                        <img className={styles.agomiImg} src='/assets/common/agomi.png'/>
                         <button className={styles.startBtn} onClick={() => navigate('/situation')}>시작하기</button>
                     </div>
                 </div>
