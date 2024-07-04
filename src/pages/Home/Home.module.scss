@@ -28,6 +28,9 @@
         height: 50%;
         border-radius: 10px;
         cursor: pointer;
+
+        color: white;
+        font-size: 20px;
     }
 }
 
@@ -57,6 +60,7 @@
 
 h4 {
     margin: 0 0 20px 0; /* 제목과 버튼 사이에 충분한 공간을 확보 */
+    font-size: 20px;
 }
 
 .startBtn {

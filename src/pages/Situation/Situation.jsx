@@ -53,7 +53,7 @@ function Situation() {
         <Layout>
             <div className={styles.situationWrap}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>역할놀이 🐻</h1>
+                    <h1 className={styles.title}>Play with AI 💛</h1>
                     <button onClick={handleExit} className={styles.exitButton}>돌아가기</button>
                 </div>
                 <div className={styles.content}>
@@ -78,7 +78,7 @@ function Situation() {
                                 <p>선택된 놀이: {selectedGameType}</p>
                             </div>
                             <div className={styles.selectionSection}>
-                                <h3>사용자 역할</h3>
+                                <h3>🐻 사용자 역할</h3>
                                 <select onChange={(e) => setSelectedUserRole(e.target.value)} className={styles.selectDropdown}>
                                     <option value="">선택해주세요</option>
                                     {roleOptions[selectedGameType].map((role) => (
@@ -87,7 +87,7 @@ function Situation() {
                                 </select>
                             </div>
                             <div className={styles.selectionSection}>
-                                <h3>AI의 역할</h3>
+                                <h3>🐻 AI의 역할</h3>
                                 <select onChange={(e) => setSelectedAIRole(e.target.value)} className={styles.selectDropdown}>
                                     <option value="">선택해주세요</option>
                                     {roleOptions[selectedGameType].map((role) => (
@@ -96,7 +96,7 @@ function Situation() {
                                 </select>
                             </div>
                             <div className={styles.selectionSection}>
-                                <h3>AI의 음성</h3>
+                                <h3>🐻 AI의 음성</h3>
                                 <select onChange={(e) => setSelectedAIVoice(e.target.value)} className={styles.selectDropdown}>
                                     <option value="">선택해주세요</option>
                                     {voiceOptions.map((voice) => (
@@ -104,7 +104,7 @@ function Situation() {
                                     ))}
                                 </select>
                             </div>
-                            <button onClick={handleNextStep} className={styles.startButton}>시작하기</button>
+                            <button onClick={handleNextStep} className={styles.startButton}>역할놀이 시작하기</button>
                         </div>
                     )}
                 </div>
