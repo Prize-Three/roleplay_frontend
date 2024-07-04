@@ -1,77 +1,110 @@
 .chatContainer {
-    // 기본 위치 세팅
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #DEE7FF; /* 카카오톡 배경색 */
+  background-image: url('../../../public/assets/situation/situationImg.png');
+  background-size: cover; /* 이미지가 요소를 덮도록 설정 */
+    background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
+    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+  //padding: 20px;
+  border-radius: 10px;
+}
 
-    // 스타일
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    position: relative;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  .chat {
-    width: 100%;
-    max-width: 600px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    overflow-y: auto;
-    height: 400px;
-    margin-bottom: 20px;
-  }
-  
-  .message {
-    margin-bottom: 10px;
-  }
-  
-  .userInput {
-    display: flex;
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  #user-message {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-right: none;
-  }
-  
-  button {
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  #loading {
-    margin-top: 20px;
-    color: #007bff;
-  }
-  
-  .stopButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 5px 10px;
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .stopButton:hover {
-    background-color: darkred;
-  }
-  
+.chatWrapper {
+  width: 90%;
+  height: 90%; /* 최대 높이 설정 */
+  display: flex;
+  flex-direction: column;
+  background-color: white; /* 채팅창 배경색 */
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 */
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤 표시 */
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(to bottom, #FFC74D, #F67B36);
+  // background-color: #007bff; /* 헤더 배경색 */
+  color: #752626;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.chatHeader h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.stopButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.stopButton:hover {
+  color: #f44336; /* hover 시 빨간색 */
+}
+
+.chatBody {
+  flex: 1;
+  padding: 20px;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  max-width: 80%;
+  position: relative;
+  border-radius: 15px;
+  background-color: #f0f0f0; /* 메시지 배경색 */
+}
+
+.message strong {
+  color: #007bff; /* 사용자와 컴퓨터 이름 색상 변경 */
+}
+
+.userInput {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f0f0f0; /* 입력창 배경색 */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#user-message {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 15px;
+}
+
+.sendButton {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.sendButton:hover {
+  background-color: #0056b3;
+}
+
+#loading {
+  margin-top: 20px;
+  text-align: center;
+  color: #007bff;
+}
