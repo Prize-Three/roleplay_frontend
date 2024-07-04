@@ -1,13 +1,14 @@
-// Chat.jsx
 import React, { useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { useNavigate } from 'react-router-dom';
+import Alert from '../../components/Alert/Alert';
 import styles from './Chat.module.scss';
 
 function Chat() {
     const [messages, setMessages] = useState([]);
     const [userMessage, setUserMessage] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
@@ -42,6 +43,14 @@ function Chat() {
     };
 
     const handleStopClick = () => {
+        setShowAlert(true);
+    };
+
+    const handleCloseAlert = () => {
+        setShowAlert(false);
+    };
+
+    const handleConfirmExit = () => {
         navigate('/result');
     };
 
@@ -76,6 +85,13 @@ function Chat() {
                         </button>
                     </div>
                 </div>
+                {showAlert && (
+                    <Alert
+                        message="정말 종료하시겠습니까?"
+                        onConfirm={handleConfirmExit}
+                        onCancel={handleCloseAlert}
+                    />
+                )}
             </div>
         </Layout>
     );
