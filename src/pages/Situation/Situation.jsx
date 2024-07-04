@@ -37,7 +37,7 @@ function Situation() {
         <Layout>
             <div className={styles.situationWrap}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>역할놀이</h1>
+                    <h1 className={styles.title}>역할놀이 🐻</h1>
                     <button onClick={handleExit} className={styles.exitButton}>돌아가기</button>
                 </div>
                 <div className={styles.content}>
@@ -49,11 +49,19 @@ function Situation() {
                             <button onClick={() => handleRolePlaySelect('시장 놀이')} className={styles.gameTypeButton}>시장 놀이</button>
                             <button onClick={() => handleRolePlaySelect('가족 놀이')} className={styles.gameTypeButton}>가족 놀이</button>
                             <button onClick={() => handleRolePlaySelect('소꿉 놀이')} className={styles.gameTypeButton}>소꿉 놀이</button>
+                            <button onClick={() => handleRolePlaySelect('학교 놀이')} className={styles.gameTypeButton}>학교 놀이</button>
+                            <button onClick={() => handleRolePlaySelect('병원 놀이')} className={styles.gameTypeButton}>병원 놀이</button>
+                            <button onClick={() => handleRolePlaySelect('시장 놀이')} className={styles.gameTypeButton}>시장 놀이</button>
+                            <button onClick={() => handleRolePlaySelect('가족 놀이')} className={styles.gameTypeButton}>가족 놀이</button>
+                            <button onClick={() => handleRolePlaySelect('소꿉 놀이')} className={styles.gameTypeButton}>소꿉 놀이</button>
                         </div>
                     </div>
                     {rightPanelState && selectedGameType && (
                         <div className={styles.rightPanel}>
-                            <h3>{selectedGameType}에 대한 세부 설정</h3>
+                            <div className={styles.rightPanelHeader}>
+                                <h3>세부 설정</h3>
+                                <p>선택된 놀이: {selectedGameType}</p>
+                            </div>
                             <div className={styles.selectionSection}>
                                 <h3>사용자 역할</h3>
                                 <select onChange={(e) => setSelectedUserRole(e.target.value)} className={styles.selectDropdown}>
