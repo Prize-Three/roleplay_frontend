@@ -9,9 +9,11 @@ const navigate = useNavigate();
   return (
     <Layout>
         <div className={styles.resultContainer}>
-            <h1>결과 페이지</h1>
-            <p>여기에 결과 내용을 표시합니다.</p>
+          <div className={styles.whiteBox}>
+            <h1>놀이 결과</h1>
+            <p>놀이 결과를 보여줍니다(미정).</p>
             <button onClick={() => navigate('/')}>메인화면으로 돌아가기</button>
+          </div>
         </div>
     </Layout>
   );
