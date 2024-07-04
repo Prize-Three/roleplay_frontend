@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
+import Alert from '../../components/Alert/Alert';
 import styles from './Situation.module.scss';
 
 function Situation() {
@@ -10,8 +11,8 @@ function Situation() {
     const [selectedAIRole, setSelectedAIRole] = useState(null);
     const [selectedAIVoice, setSelectedAIVoice] = useState(null);
     const [rightPanelState, setRightPanelState] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
-    // 역할 선택지 데이터
     const roleOptions = {
         '학교 놀이': ['선생님', '학생', '교장선생님'],
         '병원 놀이': ['의사', '환자', '간호사'],
@@ -23,17 +24,15 @@ function Situation() {
         '승무원 놀이': ['승객', '승무원'],
     };
 
-    // 음성 선택지 데이터
     const voiceOptions = ['음성A', '음성B', '음성C', '음성D'];
-
 
     const handleRolePlaySelect = (gameType) => {
         if (gameType === selectedGameType) {
-            setSelectedGameType(null); // 이미 선택된 게임 타입을 다시 클릭하면 선택 취소
-            setRightPanelState(false); // rightPanel 숨기기
+            setSelectedGameType(null);
+            setRightPanelState(false);
         } else {
-            setSelectedGameType(gameType); // 새로운 게임 타입 선택
-            setRightPanelState(true); // rightPanel 보이기
+            setSelectedGameType(gameType);
+            setRightPanelState(true);
         }
     };
 
@@ -41,12 +40,17 @@ function Situation() {
         if (selectedGameType && selectedUserRole && selectedAIRole && selectedAIVoice) {
             navigate(`/chat/`);
         } else {
-            alert('모든 역할과 음성을 선택해주세요!');
+            // 경고창 띄우기
+            setShowAlert(true);
         }
     };
 
     const handleExit = () => {
-        navigate('/'); // Replace with the appropriate path to navigate to the exit page
+        navigate('/');
+    };
+
+    const handleCloseAlert = () => {
+        setShowAlert(false);
     };
 
     return (
@@ -87,7 +91,7 @@ function Situation() {
                                 </select>
                             </div>
                             <div className={styles.selectionSection}>
-                                <h3>🐻 AI의 역할</h3>
+                                <h3>💡 AI 역할</h3>
                                 <select onChange={(e) => setSelectedAIRole(e.target.value)} className={styles.selectDropdown}>
                                     <option value="">선택해주세요</option>
                                     {roleOptions[selectedGameType].map((role) => (
@@ -96,7 +100,7 @@ function Situation() {
                                 </select>
                             </div>
                             <div className={styles.selectionSection}>
-                                <h3>🐻 AI의 음성</h3>
+                                <h3>🎤 AI 음성</h3>
                                 <select onChange={(e) => setSelectedAIVoice(e.target.value)} className={styles.selectDropdown}>
                                     <option value="">선택해주세요</option>
                                     {voiceOptions.map((voice) => (
@@ -104,10 +108,18 @@ function Situation() {
                                     ))}
                                 </select>
                             </div>
-                            <button onClick={handleNextStep} className={styles.startButton}>역할놀이 시작하기</button>
+                            <div className={styles.nextButtonContainer}>
+                                <button onClick={handleNextStep} className={styles.nextButton}>다음 단계</button>
+                            </div>
                         </div>
                     )}
                 </div>
+                {showAlert && (
+                    <Alert
+                        message="모든 항목을 선택해야 합니다."
+                        onConfirm={handleCloseAlert}
+                    />
+                )}
             </div>
         </Layout>
     );
