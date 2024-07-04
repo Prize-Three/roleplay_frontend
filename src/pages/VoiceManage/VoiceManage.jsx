@@ -9,9 +9,11 @@ function VoiceManage() {
     return (
         <Layout>
             <div className={styles.voiceManageContainer}>
-                <h1>음성 관리</h1>
-                <p>음성 학습 및 관리, 선택</p>
-                <button onClick={() => navigate('/')}>메인화면으로 돌아가기</button>
+                <div className={styles.whiteBox}>
+                    <h1>음성 관리 페이지</h1>
+                    <p>음성생성 및 관리 페이지 입니다.</p>
+                    <button onClick={() => navigate('/')}>메인화면으로 돌아가기</button>
+                </div>
             </div>
         </Layout>
     );
