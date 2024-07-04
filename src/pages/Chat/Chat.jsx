@@ -87,7 +87,7 @@ function Chat() {
                 </div>
                 {showAlert && (
                     <Alert
-                        message="정말 종료하시겠습니까?"
+                        message="정말로 종료하시겠습니까?"
                         onConfirm={handleConfirmExit}
                         onCancel={handleCloseAlert}
                     />

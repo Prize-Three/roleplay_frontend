@@ -8,8 +8,8 @@ const Alert = ({ message, onConfirm, onCancel }) => {
             <div className={styles.alert}>
                 <p>{message}</p>
                 <div className={styles.buttonContainer}>
-                    <button onClick={onConfirm} className={styles.confirmButton}>확인</button>
-                    {onCancel && <button onClick={onCancel} className={styles.cancelButton}>취소</button>}
+                    <button onClick={onConfirm} className={styles.confirmButton}>네</button>
+                    {onCancel && <button onClick={onCancel} className={styles.cancelButton}>아니오</button>}
                 </div>
             </div>
         </div>

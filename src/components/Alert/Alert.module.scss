@@ -9,48 +9,65 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    border-radius: 10px;
 }
 
 .alert {
-    background: white;
+    background-image: url('../../../public/assets/alert/alertBgImg.png');
+    background-size: 100% 100%; /* 이미지가 요소를 덮도록 설정 */
+    background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
+    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
+    width: 390px;
+    height: 220px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .alert p {
-    margin: 0 0 20px;
+    // 임시 배치임 나중에 수정해야함
+    margin: 120px 0 20px;
+    // 스타일
+    color: #3C5BAC;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .buttonContainer {
     display: flex;
     justify-content: center;
     gap: 10px;
+
+    button {
+        width: 154px;
+        height: 36px;
+        border-radius: 15px;
+        font-weight: bold;
+        font-size: 15px;
+    }
 }
 
 .confirmButton {
-    background: #007bff;
-    color: white;
+    background: linear-gradient(to bottom, #EFE9DA, #E2DFD4); /* 호버시 배경색 밝은 주황색 */
+    color: black;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
 .confirmButton:hover {
-    background: #0056b3;
+    background: #d2cbb6;
 }
 
 .cancelButton {
-    background: #6c757d;
+    background: linear-gradient(to bottom, #FF6D6D, #FF5252); /* 호버시 배경색 밝은 주황색 */
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
 .cancelButton:hover {
-    background: #5a6268;
+    background: #c23f3f;
 }
