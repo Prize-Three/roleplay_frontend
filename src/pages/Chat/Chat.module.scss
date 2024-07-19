@@ -117,3 +117,12 @@
   text-align: center;
   color: #007bff;
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* 예시로 설정한 높이 */
+  font-size: 1.2rem;
+  color: #333;
+}

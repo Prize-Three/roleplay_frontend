@@ -9,10 +9,18 @@ function Chat() {
     const [userMessage, setUserMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+    const [isListening, setIsListening] = useState(false);
     const navigate = useNavigate();
 
+    
     const handleInputChange = (e) => {
         setUserMessage(e.target.value);
+    };
+
+    const speakText = (text) => {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ko-KR';
+        window.speechSynthesis.speak(utterance);
     };
 
     const handleSendMessage = async () => {
@@ -24,22 +32,47 @@ function Chat() {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/chat', {
+            const response = await fetch('http://localhost:8000/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message: userMessage })
+                body: JSON.stringify({ question: userMessage })
             });
 
             const data = await response.json();
-            setMessages([...newMessages, { sender: '컴퓨터', text: data.response }]);
+            const computerMessage = { sender: '컴퓨터', text: data.response };
+            setMessages([...newMessages, computerMessage]);
+            speakText(computerMessage.text); // TTS 호출
         } catch (error) {
             console.error('Error:', error);
             setMessages([...newMessages, { sender: '컴퓨터', text: 'Error: 응답을 가져올 수 없습니다.' }]);
         } finally {
             setLoading(false);
         }
+    };
+
+    const handleStartListening = () => {
+        if (!('webkitSpeechRecognition' in window)) {
+            alert('STT를 지원하지 않는 브라우저입니다.');
+            return;
+        }
+
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'ko-KR';
+        recognition.interimResults = false;
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            setUserMessage(transcript);
+            handleSendMessage();
+        };
+
+        recognition.onend = () => {
+            setIsListening(false);
+        };
+
+        recognition.start();
+        setIsListening(true);
     };
 
     const handleStopClick = () => {
@@ -83,7 +116,11 @@ function Chat() {
                         <button className={styles.sendButton} onClick={handleSendMessage}>
                             전송
                         </button>
+                        <button className={styles.sendButton} onClick={handleStartListening} disabled={isListening}>
+                            {isListening ? '음성 인식 중...' : '음성 입력'}
+                        </button>
                     </div>
+                    {loading && <div className={styles.loading}>로딩 중...</div>}
                 </div>
                 {showAlert && (
                     <Alert

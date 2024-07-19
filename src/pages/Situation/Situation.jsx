@@ -57,7 +57,7 @@ function Situation() {
         <Layout>
             <div className={styles.situationWrap}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>Play with AI 💛</h1>
+                    <h1 className={styles.title}>Roleplay With AI</h1>
                     <button onClick={handleExit} className={styles.exitButton}>돌아가기</button>
                 </div>
                 <div className={styles.content}>
@@ -91,7 +91,7 @@ function Situation() {
                                 </select>
                             </div>
                             <div className={styles.selectionSection}>
-                                <h3>💡 AI 역할</h3>
+                                <h3>🐻 AI 역할</h3>
                                 <select onChange={(e) => setSelectedAIRole(e.target.value)} className={styles.selectDropdown}>
                                     <option value="">선택해주세요</option>
                                     {roleOptions[selectedGameType].map((role) => (
@@ -100,7 +100,7 @@ function Situation() {
                                 </select>
                             </div>
                             <div className={styles.selectionSection}>
-                                <h3>🎤 AI 음성</h3>
+                                <h3>🐻 AI 음성</h3>
                                 <select onChange={(e) => setSelectedAIVoice(e.target.value)} className={styles.selectDropdown}>
                                     <option value="">선택해주세요</option>
                                     {voiceOptions.map((voice) => (
