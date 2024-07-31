@@ -38,12 +38,18 @@ function Situation() {
 
     const handleNextStep = () => {
         if (selectedGameType && selectedUserRole && selectedAIRole && selectedAIVoice) {
-            navigate(`/chat/`);
+            const queryParams = new URLSearchParams({
+                selectedGameType,
+                selectedUserRole,
+                selectedAIRole,
+                selectedAIVoice
+            }).toString();
+            navigate(`/chat?${queryParams}`);
         } else {
-            // 경고창 띄우기
             setShowAlert(true);
         }
     };
+    
 
     const handleExit = () => {
         navigate('/');

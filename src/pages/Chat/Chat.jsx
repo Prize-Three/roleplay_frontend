@@ -3,8 +3,16 @@ import Layout from '../../components/Layout/Layout';
 import { useNavigate } from 'react-router-dom';
 import Alert from '../../components/Alert/Alert';
 import styles from './Chat.module.scss';
+import { useLocation } from 'react-router-dom';
 
 function Chat() {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const selectedGameType = queryParams.get('selectedGameType');
+    const selectedUserRole = queryParams.get('selectedUserRole');
+    const selectedAIRole = queryParams.get('selectedAIRole');
+    const selectedAIVoice = queryParams.get('selectedAIVoice');
+
     const [messages, setMessages] = useState([]);
     const [userMessage, setUserMessage] = useState('');
     const [loading, setLoading] = useState(false);
@@ -12,7 +20,6 @@ function Chat() {
     const [isListening, setIsListening] = useState(false);
     const navigate = useNavigate();
 
-    
     const handleInputChange = (e) => {
         setUserMessage(e.target.value);
     };
@@ -32,7 +39,7 @@ function Chat() {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:8000/chat', {
+            const response = await fetch(`http://localhost:8000/chat?selectedGameType=${selectedGameType}&selectedUserRole=${selectedUserRole}&selectedAIRole=${selectedAIRole}&selectedAIVoice=${selectedAIVoice}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -43,7 +50,7 @@ function Chat() {
             const data = await response.json();
             const computerMessage = { sender: '컴퓨터', text: data.response };
             setMessages([...newMessages, computerMessage]);
-            speakText(computerMessage.text); // TTS 호출
+            speakText(computerMessage.text);
         } catch (error) {
             console.error('Error:', error);
             setMessages([...newMessages, { sender: '컴퓨터', text: 'Error: 응답을 가져올 수 없습니다.' }]);
@@ -135,3 +142,4 @@ function Chat() {
 }
 
 export default Chat;
+
