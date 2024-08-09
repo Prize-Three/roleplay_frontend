@@ -119,10 +119,15 @@
 }
 
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px; /* 예시로 설정한 높이 */
-  font-size: 1.2rem;
-  color: #333;
+  position: fixed; /* 화면에 고정 */
+  top: 50%; /* 화면 세로 중앙 */
+  left: 50%; /* 화면 가로 중앙 */
+  transform: translate(-50%, -50%); /* 중앙 정렬 */
+  background-color: rgba(0, 0, 0, 0.6); /* 반투명 배경 */
+  color: white; /* 텍스트 색상 */
+  padding: 20px; /* 패딩 */
+  border-radius: 10px; /* 모서리 둥글게 */
+  font-size: 1.5em; /* 폰트 크기 */
+  z-index: 1000; /* 다른 요소 위에 표시 */
+  text-align: center; /* 텍스트 중앙 정렬 */
 }

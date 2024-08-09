@@ -127,7 +127,7 @@ function Chat() {
                             {isListening ? '음성 인식 중...' : '음성 입력'}
                         </button>
                     </div>
-                    {loading && <div className={styles.loading}>로딩 중...</div>}
+                    {loading && <div className={styles.loading}>응답 생성 중...</div>}
                 </div>
                 {showAlert && (
                     <Alert
