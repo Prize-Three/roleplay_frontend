@@ -1,10 +1,33 @@
-import React from 'react';
+
 import styles from './TotalResult.module.scss';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
+import { useEffect, useState, React } from 'react';
 
 function TotalResult() {
     const navigate = useNavigate();
+
+    // 비동기로 데이터 가져오기
+    const [historyList, setHistoryList] = useState([]);
+
+    useEffect(()=>{
+        // 데이터를 가져오는 비동기 함수
+        const fetchHistoryList = async () => {
+            try {
+                const response = await fetch('http://localhost:8000/history');
+
+                if (!response.ok) {
+                    throw new Error('데이터를 가져오는데 실패했습니다.')
+                }
+                
+                const data = await response.json();
+                setHistoryList(data.history_list);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchHistoryList();
+    }, []);
 
     return (
         <Layout>
@@ -15,9 +38,19 @@ function TotalResult() {
                 </div>
 
                 <div className={styles.totalResultBody}>
-                    <h1>스크립트 모음</h1>
-                    <p>그동안 진행한 모든 스크립트 확인 가능 페이지</p>
-                    
+                    <div>
+                        {historyList.map((history) => (
+                            <div key={history.history_id} className={styles.historyItem}>
+                                <p>{history.situation}</p>
+                                <p>|</p>
+                                <p>{history.date}</p>
+                                <p>|</p>
+                                <p>{history.duration}</p>
+                                <p>|</p>
+                                <p>{history.voice}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </Layout>

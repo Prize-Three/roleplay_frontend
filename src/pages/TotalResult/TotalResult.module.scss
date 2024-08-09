@@ -49,10 +49,28 @@
   }
 
   .totalResultBody {
-    background-color: rgb(139, 84, 84);
+    background-color: rgba(255, 255, 255, 0.8); 
     width: 90%;
     height: 70%;
     text-align: center;
     margin: 0 auto auto auto;
     border-radius: 0px 0px 15px 15px;
   }
+
+ 
+
+  .historyItem {
+    display: flex;
+    // background-color: rgba(255, 255, 255, 0.8);
+    margin: 10px 30px 10px 30px;
+    border-bottom: #B5D2FF 3px solid;
+    padding: 20px; /* 패딩 추가 */
+    // border-radius: 5px; /* 모서리 둥글게 */
+}
+
+.historyItem p {
+    flex: 1; /* 각 자식 요소가 동일한 너비를 가짐 */
+    margin: 0; /* 기본 마진 제거 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    font-weight: bold;
+}
