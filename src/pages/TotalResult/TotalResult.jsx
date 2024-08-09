@@ -40,7 +40,12 @@ function TotalResult() {
                 <div className={styles.totalResultBody}>
                     <div>
                         {historyList.map((history) => (
-                            <div key={history.history_id} className={styles.historyItem}>
+                            <div 
+                                key={history.history_id} 
+                                className={styles.historyItem}
+                                onClick={() => navigate('/result')}
+                                style={{ cursor: 'pointer' }} // 커서 변경
+                            >
                                 <p>{history.situation}</p>
                                 <p>|</p>
                                 <p>{history.date}</p>
