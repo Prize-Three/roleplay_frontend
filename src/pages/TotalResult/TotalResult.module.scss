@@ -8,7 +8,7 @@
     height: 100%;
     border-radius: 10px;
 
-    background-image: url('../../../public/assets/result/resultImg.png');
+    background-image: url('../../../public/assets/result/allScriptBg.png');
     background-size: cover; /* 이미지가 요소를 덮도록 설정 */
     background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
     background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
@@ -22,11 +22,37 @@
     font-size: 18px;
   }
 
-  .whiteBox {
-    background-color: white;
+  .totalResultHead {
+    background-color: rgba(255, 255, 255, 0.8); 
     width: 90%;
-    height: 80%;
+    height: 10%;
     text-align: center;
-    margin: auto;
-    border-radius: 15px;
+    margin: auto auto 0 auto;
+    border-radius: 15px 15px 0px 0px;
+
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+
+    align-items: center; /* 세로 중앙 정렬 */
+    // padding: 0 20px; /* 좌우 여백 추가 */
+
+    div {
+      font-size: 20px;
+      background-color: pink;
+      margin-left: 20px;
+    }
+    button {
+      margin-right: 20px;
+      font-size: 20px;
+    }
+  }
+
+  .totalResultBody {
+    background-color: rgb(139, 84, 84);
+    width: 90%;
+    height: 70%;
+    text-align: center;
+    margin: 0 auto auto auto;
+    border-radius: 0px 0px 15px 15px;
   }
