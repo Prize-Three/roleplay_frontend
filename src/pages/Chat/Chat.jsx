@@ -91,7 +91,7 @@ function Chat() {
     };
 
     const handleConfirmExit = () => {
-        navigate('/result');
+        navigate('/');
     };
 
     return (
