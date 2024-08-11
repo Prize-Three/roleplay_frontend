@@ -47,30 +47,38 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #FF8B66; /* 하단 테두리 */
+    // padding-bottom: 10px;
+    // border-bottom: 3px solid #000000; /* 하단 테두리 */
 }
 
 .title {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: bold;
     color: white;
+    width: 340px;
+    text-align: center;
+    height: 63px;
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 50px;
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
 }
 
 .exitButton {
-    background-color: #FF6347; /* 진한 주황색 */
+    background-color: transparent; /* 진한 주황색 */
     color: #FFFFFF; /* 흰색 폰트 */
     border: none;
     padding: 8px 16px;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-family: 'LaundryGothicBold', sans-serif;
 
-    &:hover {
-        background-color: #FF4500; /* 더 진한 주황색으로 호버 */
-    }
+    // &:hover {
+    //     background-color: #FF4500; /* 더 진한 주황색으로 호버 */
+    // }
 }
 
 .content {

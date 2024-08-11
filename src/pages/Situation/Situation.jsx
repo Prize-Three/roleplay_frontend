@@ -63,7 +63,7 @@ function Situation() {
         <Layout>
             <div className={styles.situationWrap}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>Roleplay With AI</h1>
+                    <h1 className={styles.title}> AI와 함께하는 역할놀이 🐻</h1>
                     <button onClick={handleExit} className={styles.exitButton}>돌아가기</button>
                 </div>
                 <div className={styles.content}>
