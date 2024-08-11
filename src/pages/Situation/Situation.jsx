@@ -44,20 +44,45 @@ function Situation() {
         }
     };
 
-    const handleNextStep = () => {
+    const handleNextStep = async () => {
         if (selectedGameType && selectedUserRole && selectedAIRole && selectedAIVoice) {
-            const queryParams = new URLSearchParams({
-                selectedGameType,
-                selectedUserRole,
-                selectedAIRole,
-                selectedAIVoice
-            }).toString();
-            navigate(`/chat?${queryParams}`);
+            const dataToSend = {
+                voice_id: selectedAIVoice,
+                situation: selectedGameType,
+                my_role: selectedUserRole,
+                ai_role: selectedAIRole
+            };
+
+            try {
+                const response = await fetch('http://localhost:8000/select', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dataToSend),
+                });
+
+                if (!response.ok) {
+                    throw new Error('서버로 데이터를 전송하는 데 실패했습니다.');
+                }
+
+                const responseData = await response.json();
+
+                // 응답에서 history_id를 받아와 URL에 추가
+                const queryParams = new URLSearchParams({
+                    ...dataToSend,
+                    history_id: responseData.history_id
+                }).toString();
+
+                navigate(`/chat?${queryParams}`);
+            } catch (error) {
+                console.error('Error sending data:', error);
+                // 필요에 따라 사용자에게 오류 메시지를 표시할 수 있습니다.
+            }
         } else {
             setShowAlert(true);
         }
     };
-    
 
     const handleExit = () => {
         navigate('/');
