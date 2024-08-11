@@ -28,8 +28,8 @@ function TotalResult() {
             <div className={styles.totalResultContainer}>
                 <div className={styles.totalResultHead}>
                     <div className={styles.totalResultHeadTitle}>📝 결과 모음</div>
-                    <div>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
-                    <button onClick={() => navigate('/')}>나가기</button>
+                    <div>- - - - - - - - - - - - - - - - - - - - - -</div>
+                    <button onClick={() => navigate('/')}>이전으로</button>
                 </div>
 
                 <div className={styles.totalResultBody}>

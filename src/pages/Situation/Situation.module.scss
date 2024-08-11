@@ -1,17 +1,6 @@
-// .situationWrap {
-//     width: 100%;
-//     height: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     background-image: url('../../../public/assets/situation/situationImg.png');
-//     background-size: cover; /* 이미지가 요소를 덮도록 설정 */
-//     background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
-//     background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
-//     border-radius: 10px;
-//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-//     padding: 20px;
-//     box-sizing: border-box;
-// }
+body {
+    font-family: 'LaundryGothicBold', sans-serif;
+}
 
 .situationWrap {
     width: 100%;

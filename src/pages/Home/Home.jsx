@@ -7,14 +7,14 @@ import styles from './Home.module.scss';
 
 function Home() {
     const navigate = useNavigate();
-    let title = '\"AI와 함께하는 역할놀이 서비스 - 테스트 페이지\"';
+    let title = 'AI와 함께하는 역할놀이 서비스 - 테스트 페이지';
 
     return (
         <Layout>
             <div className={styles.homeWrap}>
                 <div className={styles.buttonWrap}>
                     <button onClick={() => navigate('/voice-manage')}>🔊 음성 관리</button>
-                    <button onClick={() => navigate('/total-result')}>📝 스크립트 관리</button>
+                    <button onClick={() => navigate('/total-result')}>📝 결과 모음</button>
                 </div>
                 <div className={styles.homeContentWrap}>
                     <div className={styles.homeDiv}>
