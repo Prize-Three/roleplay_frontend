@@ -27,8 +27,9 @@ function TotalResult() {
         <Layout>
             <div className={styles.totalResultContainer}>
                 <div className={styles.totalResultHead}>
-                    <div>역할놀이 스크립트 관리</div>
-                    <button onClick={() => navigate('/')}>나가기 ❎</button>
+                    <div className={styles.totalResultHeadTitle}>📝 결과 모음</div>
+                    <div>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+                    <button onClick={() => navigate('/')}>나가기</button>
                 </div>
 
                 <div className={styles.totalResultBody}>

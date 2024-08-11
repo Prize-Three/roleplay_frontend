@@ -1,3 +1,5 @@
+
+
 .totalResultContainer {
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@
 }
 
 .totalResultHead {
-  background-color: rgba(255, 255, 255, 0.8);
+  
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -22,29 +24,44 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+
 .totalResultHead div {
-  font-size: 20px;
-  background-color: pink;
+  font-size: 28px;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 35px;
+}
+
+.totalResultHeadTitle {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 200px;
+  height: 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: white;
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
 }
 
 .totalResultHead button {
-  font-size: 20px;
+  font-family: 'LaundryGothicBold', sans-serif;
+  font-size: 42px;
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  // transition: background-color 0.3s ease;
+  color: white;
+  -webkit-text-stroke: 3px rgb(0, 0, 0); /* 테두리 색상과 두께 */
 }
 
-.totalResultHead button:hover {
-  background-color: #f0f0f0;
-}
+// .totalResultHead button:hover {
+//   background-color: #f0f0f0;
+// }
 
 .totalResultBody {
   background-color: rgba(255, 255, 255, 0.8);
@@ -64,12 +81,13 @@
   justify-content: space-around;
   align-items: center; /* 세로 중앙 정렬 */
   padding: 10px;
-  background-color: #f7f7f7;
-  font-weight: bold;
+  background: linear-gradient(to bottom, #FFC74D, #F67B36);
+  color: white;
   border-bottom: 2px solid #ddd;
   border-radius: 5px;
   z-index: 10;
 }
+
 
 .historyItem {
   display: flex;

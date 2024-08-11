@@ -15,3 +15,17 @@ code {
 body {
   font-family: 'Jua', 'Lora', sans-serif;
 }
+
+@font-face {
+  font-family: 'LaundryGothicBold';
+  src: url('../src/assets/fonts/LaundryGothic_TTF/webfont/런드리고딕 Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LaundryGothicRegular';
+  src: url('../src/assets/fonts/LaundryGothic_TTF/webfont/런드리고딕 Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
