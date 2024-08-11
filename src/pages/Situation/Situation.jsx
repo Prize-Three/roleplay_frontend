@@ -36,6 +36,14 @@ function Situation() {
         }
     };
 
+    const handleRoleSelection = (role, type) => {
+        if (type === 'user') {
+            setSelectedUserRole(role);
+        } else if (type === 'ai') {
+            setSelectedAIRole(role);
+        }
+    };
+
     const handleNextStep = () => {
         if (selectedGameType && selectedUserRole && selectedAIRole && selectedAIVoice) {
             const queryParams = new URLSearchParams({
@@ -83,36 +91,47 @@ function Situation() {
                     </div>
                     {rightPanelState && selectedGameType && (
                         <div className={styles.rightPanel}>
-                            {/* <div className={styles.rightPanelHeader}>
-                                <h3>세부 설정</h3>
-                                <p>선택된 놀이: {selectedGameType}</p>
-                            </div> */}
                             <div className={styles.selectionSection}>
                                 <h3>🐻 사용자 역할</h3>
-                                <select onChange={(e) => setSelectedUserRole(e.target.value)} className={styles.selectDropdown}>
-                                    <option value="">선택해주세요</option>
+                                <div className={styles.roleButtonGroup}>
                                     {roleOptions[selectedGameType].map((role) => (
-                                        <option key={role} value={role}>{role}</option>
+                                        <button
+                                            key={role}
+                                            onClick={() => handleRoleSelection(role, 'user')}
+                                            className={`${styles.roleButton} ${role === selectedUserRole ? styles.selected : ''}`}
+                                        >
+                                            {role}
+                                        </button>
                                     ))}
-                                </select>
+                                </div>
                             </div>
                             <div className={styles.selectionSection}>
                                 <h3>🐻 AI 역할</h3>
-                                <select onChange={(e) => setSelectedAIRole(e.target.value)} className={styles.selectDropdown}>
-                                    <option value="">선택해주세요</option>
+                                <div className={styles.roleButtonGroup}>
                                     {roleOptions[selectedGameType].map((role) => (
-                                        <option key={role} value={role}>{role}</option>
+                                        <button
+                                            key={role}
+                                            onClick={() => handleRoleSelection(role, 'ai')}
+                                            className={`${styles.roleButton} ${role === selectedAIRole ? styles.selected : ''}`}
+                                        >
+                                            {role}
+                                        </button>
                                     ))}
-                                </select>
+                                </div>
                             </div>
                             <div className={styles.selectionSection}>
                                 <h3>🐻 AI 음성</h3>
-                                <select onChange={(e) => setSelectedAIVoice(e.target.value)} className={styles.selectDropdown}>
-                                    <option value="">선택해주세요</option>
+                                <div className={styles.voiceButtonGroup}>
                                     {voiceOptions.map((voice) => (
-                                        <option key={voice} value={voice}>{voice}</option>
+                                        <button
+                                            key={voice}
+                                            onClick={() => setSelectedAIVoice(voice)}
+                                            className={`${styles.voiceButton} ${voice === selectedAIVoice ? styles.selected : ''}`}
+                                        >
+                                            {voice}
+                                        </button>
                                     ))}
-                                </select>
+                                </div>
                             </div>
                             <div className={styles.nextButtonContainer}>
                                 <button onClick={handleNextStep} className={styles.nextButton}>다음 단계</button>

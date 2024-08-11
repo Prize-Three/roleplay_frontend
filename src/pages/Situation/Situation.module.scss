@@ -220,87 +220,46 @@ body {
     margin-bottom: 10px;
 }
 
+/* 기존 스타일 유지 */
+
 .rightPanel .selectionSection {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.rightPanel select {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #CCCCCC; /* 연한 회색 테두리 */
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
+.roleButtonGroup, .voiceButtonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* 버튼 사이의 간격 */
 }
 
-.rightPanel select:focus {
-    border-color: #FF8B66; /* 주황색 테두리 포커스시 */
-}
-
-.rightPanel .startButton {
-    background-color: #FF8B66; /* 진한 주황색 */
-    color: #FFFFFF; /* 흰색 폰트 */
+.roleButton, .voiceButton {
+    background: linear-gradient(to bottom, #FFCC30, #F59346); /* 기본 배경색 */
+    color: #752626; /* 폰트 색상 */
     border: none;
-    padding: 14px 28px;
-    border-radius: 5px;
-    font-size: 18px;
+    padding: 12px 20px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    outline: none;
+    border-radius: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.rightPanel .startButton:hover {
-    background-color: #FF6347; /* 진한 주황색으로 호버 */
+.roleButton:hover, .voiceButton:hover {
+    background: linear-gradient(to bottom, #FFDA79, #FF974B);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-
-
-.rightPanelHeader {
-    text-align: center; /* 제목과 선택된 놀이 텍스트를 가운데 정렬 */
-    margin-bottom: 20px;
+.roleButton.selected, .voiceButton.selected {
+    background: linear-gradient(to bottom, #FF6D6D, #FF5252);
+    color: white;
+    transform: scale(1.05);
 }
 
-.rightPanelHeader h3 {
-    font-size: 24px;
-    color: #333333; /* 어두운 회색 */
-}
-
-.rightPanelHeader p {
-    font-size: 18px;
-    color: #666666; /* 회색 */
-}
-
-.leftPanel, .rightPanel {
-    overflow-y: auto; /* 세로 스크롤바 활성화 */
-    padding-right: 20px; /* 스크롤바와 컨텐츠 사이의 여백 */
-
-    /* 커스텀 스크롤바 */
-    &::-webkit-scrollbar {
-        width: 20px; /* 스크롤바 너비 */
-    }
-
-    &::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.8); /* 트랙 배경색 */
-        border-radius: 10px; /* 둥근 모서리 */
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: linear-gradient(to bottom, #91B134, #468A49); /* 그라데이션 스크롤바 색상 */
-        border-radius: 15px; /* 둥근 모서리 */
-        border: 5px solid transparent; /* 스크롤바의 경계 영역 */
-        background-clip: padding-box; /* 패딩 영역 클립 */
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: rgba(0, 0, 0, 0.7); /* 호버시 스크롤바 색상 */
-    }
-
-    // &::-webkit-scrollbar-thumb:hover {
-    //     background: linear-gradient(to bottom, #6DA329, #356B2C); /* 호버시 그라데이션 스크롤바 색상 */
-    // }
-
-    &::-webkit-scrollbar-corner {
-        background: transparent; /* 코너 배경색 */
-    }
+.roleButton:active, .voiceButton:active {
+    background: linear-gradient(to bottom, #FFC74D, #F67B36);
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
