@@ -83,10 +83,10 @@ function Situation() {
                     </div>
                     {rightPanelState && selectedGameType && (
                         <div className={styles.rightPanel}>
-                            <div className={styles.rightPanelHeader}>
+                            {/* <div className={styles.rightPanelHeader}>
                                 <h3>세부 설정</h3>
                                 <p>선택된 놀이: {selectedGameType}</p>
-                            </div>
+                            </div> */}
                             <div className={styles.selectionSection}>
                                 <h3>🐻 사용자 역할</h3>
                                 <select onChange={(e) => setSelectedUserRole(e.target.value)} className={styles.selectDropdown}>
