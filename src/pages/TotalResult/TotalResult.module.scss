@@ -1,81 +1,96 @@
 .totalResultContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    // 기본 위치 세팅
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-
-    background-image: url('../../../public/assets/result/allScriptBg.png');
-    background-size: cover; /* 이미지가 요소를 덮도록 설정 */
-    background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
-    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  p {
-    font-size: 18px;
-  }
-
-  .totalResultHead {
-    background-color: rgba(255, 255, 255, 0.8); 
-    width: 90%;
-    height: 10%;
-    text-align: center;
-    margin: auto auto 0 auto;
-    border-radius: 15px 15px 0px 0px;
-
-    display: flex;
-    text-align: center;
-    justify-content: space-between;
-
-    align-items: center; /* 세로 중앙 정렬 */
-    // padding: 0 20px; /* 좌우 여백 추가 */
-
-    div {
-      font-size: 20px;
-      background-color: pink;
-      margin-left: 20px;
-    }
-    button {
-      margin-right: 20px;
-      font-size: 20px;
-    }
-  }
-
-  .totalResultBody {
-    background-color: rgba(255, 255, 255, 0.8); 
-    width: 90%;
-    height: 70%;
-    text-align: center;
-    margin: 0 auto auto auto;
-    border-radius: 0px 0px 15px 15px;
-    overflow-y: auto; /* 스크롤바 추가 */
-  }
-
- 
-
-  .historyItem {
-    display: flex;
-    // background-color: rgba(255, 255, 255, 0.8);
-    margin: 0px 30px 0px 30px;
-    border-bottom: #B5D2FF 3px solid;
-    padding: 20px; /* 패딩 추가 */
-    // border-radius: 5px; /* 모서리 둥글게 */
-
-    &:hover {
-      background-color: #f0f0f0; /* 커서 올렸을 때 배경색 변경 */
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-image: url('../../../public/assets/result/allScriptBg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.historyItem p {
-    flex: 1; /* 각 자식 요소가 동일한 너비를 가짐 */
-    margin: 0; /* 기본 마진 제거 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    font-weight: bold;
+.totalResultHead {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.totalResultHead div {
+  font-size: 20px;
+  background-color: pink;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.totalResultHead button {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.totalResultHead button:hover {
+  background-color: #f0f0f0;
+}
+
+.totalResultBody {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: calc(100% - 60px);
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.headerRow {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; /* 세로 중앙 정렬 */
+  padding: 10px;
+  background-color: #f7f7f7;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.historyItem {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; /* 세로 중앙 정렬 */
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.historyItem:hover {
+  background-color: #e0e0e0;
+}
+
+.headerRow p, .historyItem p {
+  flex: 1; /* 각 자식 요소가 동일한 너비를 가짐 */
+  margin: 0;
+  text-align: center; /* 텍스트 중앙 정렬 */
+  font-weight: bold;
 }

@@ -1,25 +1,19 @@
-
+import React, { useEffect, useState } from 'react';
 import styles from './TotalResult.module.scss';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
-import { useEffect, useState, React } from 'react';
 
 function TotalResult() {
     const navigate = useNavigate();
-
-    // 비동기로 데이터 가져오기
     const [historyList, setHistoryList] = useState([]);
 
-    useEffect(()=>{
-        // 데이터를 가져오는 비동기 함수
+    useEffect(() => {
         const fetchHistoryList = async () => {
             try {
                 const response = await fetch('http://localhost:8000/history');
-
                 if (!response.ok) {
-                    throw new Error('데이터를 가져오는데 실패했습니다.')
+                    throw new Error('데이터를 가져오는데 실패했습니다.');
                 }
-                
                 const data = await response.json();
                 setHistoryList(data.history_list);
             } catch (error) {
@@ -38,24 +32,24 @@ function TotalResult() {
                 </div>
 
                 <div className={styles.totalResultBody}>
-                    <div>
-                        {historyList.map((history) => (
-                            <div 
-                                key={history.history_id} 
-                                className={styles.historyItem}
-                                onClick={() => navigate('/result')}
-                                style={{ cursor: 'pointer' }} // 커서 변경
-                            >
-                                <p>{history.situation}</p>
-                                <p>|</p>
-                                <p>{history.date}</p>
-                                <p>|</p>
-                                <p>{history.duration}</p>
-                                <p>|</p>
-                                <p>{history.voice}</p>
-                            </div>
-                        ))}
+                    <div className={styles.headerRow}>
+                        <p>놀이 종류</p>
+                        <p>날짜</p>
+                        <p>진행시간</p>
+                        <p>음성</p>
                     </div>
+                    {historyList.map((history) => (
+                        <div 
+                            key={history.history_id} 
+                            className={styles.historyItem}
+                            onClick={() => navigate('/result')}
+                        >
+                            <p>{history.situation}</p>
+                            <p>{history.date}</p>
+                            <p>{history.duration}</p>
+                            <p>{history.voice}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </Layout>
