@@ -28,29 +28,30 @@ function TotalResult() {
             <div className={styles.totalResultContainer}>
                 <div className={styles.totalResultHead}>
                     <div className={styles.totalResultHeadTitle}>📝 결과 모음</div>
-                    <div>- - - - - - - - - - - - - - - - - - - - - -</div>
                     <button onClick={() => navigate('/')}>이전으로</button>
                 </div>
 
                 <div className={styles.totalResultBody}>
                     <div className={styles.headerRow}>
-                        <p>놀이 종류</p>
-                        <p>날짜</p>
-                        <p>진행시간</p>
-                        <p>음성</p>
+                        <div>놀이 종류</div>
+                        <div>날짜</div>
+                        <div>진행시간</div>
+                        <div>음성</div>
                     </div>
-                    {historyList.map((history) => (
-                        <div 
-                            key={history.history_id} 
-                            className={styles.historyItem}
-                            onClick={() => navigate('/result')}
-                        >
-                            <p>{history.situation}</p>
-                            <p>{history.date}</p>
-                            <p>{history.duration}</p>
-                            <p>{history.voice}</p>
-                        </div>
-                    ))}
+                    <div className={styles.historyItemDiv}>
+                        {historyList.map((history) => (
+                            <div 
+                                key={history.history_id} 
+                                className={styles.historyItem}
+                                onClick={() => navigate('/result')}
+                            >
+                                <div>{history.situation}</div>
+                                <div>{history.date}</div>
+                                <div>{history.duration}</div>
+                                <div>{history.voice}</div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </Layout>

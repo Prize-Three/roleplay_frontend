@@ -1,5 +1,3 @@
-
-
 .totalResultContainer {
   display: flex;
   flex-direction: column;
@@ -16,7 +14,6 @@
 }
 
 .totalResultHead {
-  
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -24,120 +21,95 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-
-.totalResultHead div {
-  font-size: 28px;
-  padding: 5px 10px;
-  border-radius: 35px;
 }
 
 .totalResultHeadTitle {
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 200px;
-  height: 50px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  font-size: 28px;
   color: white;
-  display: flex; /* Flexbox 사용 */
-  justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
   font-family: 'LaundryGothicBold', sans-serif;
 }
 
 .totalResultHead button {
   font-family: 'LaundryGothicBold', sans-serif;
-  font-size: 42px;
+  font-size: 24px;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  color: white;
   padding: 5px 10px;
   border-radius: 5px;
-  // transition: background-color 0.3s ease;
-  color: white;
-  -webkit-text-stroke: 3px rgb(0, 0, 0); /* 테두리 색상과 두께 */
 }
-
-// .totalResultHead button:hover {
-//   background-color: #f0f0f0;
-// }
 
 .totalResultBody {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   height: calc(100% - 60px);
-  overflow-y: auto;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
   box-sizing: border-box;
-  border: black 4px solid;
-}
-
-/* 스크롤바 스타일 */
-.totalResultBody::-webkit-scrollbar {
-  width: 20px; /* 스크롤바 너비 */
-}
-
-.totalResultBody::-webkit-scrollbar-track {
-  background: #f1f1f1; /* 스크롤바 트랙 배경 */
-  border-radius: 10px;
-}
-
-.totalResultBody::-webkit-scrollbar-thumb {
-  background: #888; /* 스크롤바 색상 */
-  border-radius: 10px;
-  border: 3px solid #f1f1f1; /* 스크롤바 테두리 */
-}
-
-.totalResultBody::-webkit-scrollbar-thumb:hover {
-  background: #555; /* 스크롤바 호버 색상 */
+  overflow: hidden;
 }
 
 .headerRow {
-  position: sticky;
-  top: 0;
   display: flex;
-  justify-content: space-around;
-  align-items: center; /* 세로 중앙 정렬 */
-  padding: 10px;
-  // background: linear-gradient(to bottom, #91B134, #468A49); /* 그라데이션 배경 */
-  background: linear-gradient(to bottom, #FFC74D, #F67B36); /* 클릭시 배경색 원래 주황색 */
-  color: #752626;
-  border-bottom: 2px solid #ddd;
-  border-radius: 5px;
-  z-index: 10;
-  height: 30px;
-  // -webkit-text-stroke: 1.5px #0E2B00; /* 테두리 색상과 두께 */
-
-  p {
-    font-size: 22px;
-  }
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(to right, #4CAF50, #81C784);
+  color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: calc(100% - 8px); /* 스크롤바 너비 고려 */
+  box-sizing: border-box;
 }
 
+.historyItemDiv {
+  overflow-y: auto;
+  height: calc(100% - 60px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.historyItemDiv::-webkit-scrollbar {
+  width: 8px;
+}
+
+.historyItemDiv::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.historyItemDiv::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.historyItemDiv::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 .historyItem {
   display: flex;
-  justify-content: space-around;
-  align-items: center; /* 세로 중앙 정렬 */
-  margin: 5px 0;
-  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 15px;
   background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
 
 .historyItem:hover {
-  background-color: #e0e0e0;
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
 }
 
-.headerRow p, .historyItem p {
-  flex: 1; /* 각 자식 요소가 동일한 너비를 가짐 */
-  margin: 0;
-  text-align: center; /* 텍스트 중앙 정렬 */
-  font-weight: bold;
+.headerRow div, .historyItem div {
+  flex: 1;
+  text-align: center;
 }
