@@ -92,7 +92,9 @@ function Situation() {
                     {rightPanelState && selectedGameType && (
                         <div className={styles.rightPanel}>
                             <div className={styles.selectionSection}>
-                                <h3>🐻 사용자 역할</h3>
+                                <h3>
+                                    사용자 역할
+                                </h3>
                                 <div className={styles.roleButtonGroup}>
                                     {roleOptions[selectedGameType].map((role) => (
                                         <button
@@ -106,7 +108,7 @@ function Situation() {
                                 </div>
                             </div>
                             <div className={styles.selectionSection}>
-                                <h3>🐻 AI 역할</h3>
+                                <h3>AI 역할</h3>
                                 <div className={styles.roleButtonGroup}>
                                     {roleOptions[selectedGameType].map((role) => (
                                         <button
@@ -120,7 +122,7 @@ function Situation() {
                                 </div>
                             </div>
                             <div className={styles.selectionSection}>
-                                <h3>🐻 AI 음성</h3>
+                                <h3>AI 음성</h3>
                                 <div className={styles.voiceButtonGroup}>
                                     {voiceOptions.map((voice) => (
                                         <button
@@ -134,7 +136,7 @@ function Situation() {
                                 </div>
                             </div>
                             <div className={styles.nextButtonContainer}>
-                                <button onClick={handleNextStep} className={styles.nextButton}>다음 단계</button>
+                                <button onClick={handleNextStep} className={styles.nextButton}>다음 단계 ➪</button>
                             </div>
                         </div>
                     )}
