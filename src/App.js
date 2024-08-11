@@ -16,7 +16,7 @@ function App() {
         <Route path="/situation" element={<Situation />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/choose-role" element={<ChooseRole />} />
-        <Route path="/result" element={<Result />} />
+        <Route path="/result/:historyId" element={<Result />} />
         <Route path="/total-result" element={<TotalResult />} />
         <Route path="/voice-manage" element={<VoiceManage />} />
       </Routes>

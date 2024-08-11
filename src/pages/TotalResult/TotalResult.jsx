@@ -43,7 +43,7 @@ function TotalResult() {
                             <div 
                                 key={history.history_id} 
                                 className={styles.historyItem}
-                                onClick={() => navigate('/result')}
+                                onClick={() => navigate(`/result/${history.history_id}`)}
                             >
                                 <div>{history.situation}</div>
                                 <div>{history.date}</div>
