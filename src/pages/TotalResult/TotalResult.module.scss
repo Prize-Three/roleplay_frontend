@@ -21,6 +21,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.7);
+
 }
 
 .totalResultHeadTitle {
@@ -51,6 +53,12 @@
   overflow: hidden;
 }
 
+.headContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .headerRow {
   display: flex;
   justify-content: space-between;
@@ -61,16 +69,16 @@
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 10px;
-  width: calc(100% - 8px); /* 스크롤바 너비 고려 */
   box-sizing: border-box;
+  width: 100%; /* headerRow의 너비를 100%로 설정 */
 }
 
 .historyItemDiv {
-  overflow-y: auto;
+  overflow-y: scroll; /* 스크롤바를 항상 표시 */
   height: calc(100% - 60px);
-  width: 100%;
+  width: calc(100% + 8px); /* 스크롤바 너비만큼 더 넓게 설정 */
   box-sizing: border-box;
+  margin-top: 20px;
 }
 
 .historyItemDiv::-webkit-scrollbar {
