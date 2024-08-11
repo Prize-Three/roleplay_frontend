@@ -12,6 +12,7 @@ function Chat() {
     const selectedUserRole = queryParams.get('selectedUserRole');
     const selectedAIRole = queryParams.get('selectedAIRole');
     const selectedAIVoice = queryParams.get('selectedAIVoice');
+    const historyId = queryParams.get('history_id'); // URL에서 history_id 가져오기
 
     const [messages, setMessages] = useState([]);
     const [userMessage, setUserMessage] = useState('');
@@ -39,12 +40,19 @@ function Chat() {
         setLoading(true);
 
         try {
-            const response = await fetch(`http://localhost:8000/chat?selectedGameType=${selectedGameType}&selectedUserRole=${selectedUserRole}&selectedAIRole=${selectedAIRole}&selectedAIVoice=${selectedAIVoice}`, {
+            const response = await fetch('http://localhost:8000/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ question: userMessage })
+                body: JSON.stringify({
+                    message: {
+                        question: userMessage
+                    },
+                    chat_history_id: {
+                        history_id: historyId // history_id 포함
+                    }
+                })
             });
 
             const data = await response.json();
