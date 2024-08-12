@@ -7,12 +7,6 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-
-  // 기본 위치 세팅
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-
   background-image: url('../../../public/assets/result/allScriptBg.png');
   background-size: cover;
   background-position: center;
@@ -64,14 +58,14 @@
 .section h2 {
   font-size: 22px;
   margin-bottom: 15px;
-  color: white; /* 내부 색상을 흰색으로 설정 */
+  color: white;
   position: relative;
-  padding-left: 20px; /* 텍스트와 직사각형 사이의 간격 */
+  padding-left: 20px;
   text-shadow: 
     -1.5px -1.5px 0 #0062F5,  
      1.5px -1.5px 0 #0062F5,
     -1.5px  1.5px 0 #0062F5,
-     1.5px  1.5px 0 #0062F5; /* 테두리 효과를 위한 그림자 */
+     1.5px  1.5px 0 #0062F5;
 }
 
 .section h2::before {
@@ -80,10 +74,10 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 5px; /* 직사각형의 너비 */
-  height: 100%; /* 직사각형의 높이 */
+  width: 5px;
+  height: 100%;
   background: linear-gradient(to bottom, #297EFF 0%, #67C8F3 61%, #ABDCD9 100%);
-  border-radius: 2px; /* 직사각형의 모서리를 약간 둥글게 */
+  border-radius: 2px;
 }
 
 .infoColumn {
@@ -100,7 +94,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-
 }
 
 .roleItem {
@@ -110,49 +103,44 @@
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: relative;
-  width: 200px;
+  width: 300px;
   margin: auto;
-  background-clip: padding-box; /* 배경이 테두리 안쪽까지 잘리도록 설정 */
-  border: 5px solid transparent; /* 기본 테두리 설정 */
+  background-clip: padding-box;
+  border: 3px solid transparent;
   background-image: linear-gradient(white, white), linear-gradient(to bottom, #6793F3 3%, #46FFF4 100%);
-  background-origin: border-box; /* 배경이 테두리 바깥쪽까지 확장되도록 설정 */
-  background-clip: padding-box, border-box; /* 두 개의 배경을 각각 다르게 자르도록 설정 */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
 .imageWrapper {
   position: relative;
-  border-radius: 8px; /* 이미지에 둥근 모서리 추가 */
-  overflow: hidden; /* 이미지가 컨테이너를 벗어나지 않도록 설정 */
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .roleImage {
   width: 90%;
   height: auto;
   margin-bottom: 10px;
-  border-radius: 20px;;
+  border-radius: 20px;
 }
 
 .roleOverlay {
-  // position: absolute;
-  // top: 10px;
-  // left: 50%;
-  // transform: translateX(-50%);
-
   margin: auto;
   width: 100px;
   margin-bottom: 20px;
-  background-color: rgba(0, 0, 0, 0.7); /* 더 진한 배경색으로 가독성 향상 */
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   padding: 5px 10px;
   border-radius: 20px;
   font-weight: bold;
   font-size: 16px;
-  white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 설정 */
+  white-space: nowrap;
 }
 
 .roleLabel {
-  font-weight: bold; /* 강조된 텍스트 */
-  margin-top: 5px; /* 이미지와 텍스트 사이의 간격 */
+  font-weight: bold;
+  margin-top: 5px;
   margin-bottom: 0px;
 }
 
@@ -179,7 +167,7 @@
 
 .circle {
   fill: none;
-  stroke: #4caf50; /* 기본 어휘 색상 */
+  stroke: #4caf50;
   stroke-width: 2.8;
   stroke-linecap: round;
   transition: stroke-dasharray 0.3s ease;
@@ -202,4 +190,49 @@
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.wordButtonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.wordButton {
+  background-color: #f0f8ff;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  cursor: default;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #e0f0ff;
+  }
+}
+
+.analysisItem {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.sentence {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #297EFF;
+}
+
+.comment {
+  color: #555;
 }

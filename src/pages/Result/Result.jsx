@@ -60,7 +60,7 @@ function Result() {
         <Layout>
             <div className={styles.resultContainer}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>역할놀이를 통한 발달 분석</h1>
+                    <h1 className={styles.title}>놀이 결과</h1>
                     <button className={styles.backButton} onClick={() => navigate('/')}>돌아가기</button>
                 </div>
                 <div className={styles.body}>
@@ -79,15 +79,15 @@ function Result() {
                         </div>
                         <div className={styles.roleGrid}>
                             <div className={styles.roleItem}>
+                                <div className={styles.roleOverlay}>민규 역할</div>
                                 <div className={styles.imageWrapper}>
-                                    <div className={styles.roleOverlay}>사용자 역할</div>
                                     <img src='/assets/result/child_role_img.png' alt="민규 역할" className={styles.roleImage} />
                                 </div>
                                 <p className={styles.roleLabel}>{role_play.child_role}</p>
                             </div>
                             <div className={styles.roleItem}>
+                                <div className={styles.roleOverlay}>AI 역할</div>
                                 <div className={styles.imageWrapper}>
-                                    <div className={styles.roleOverlay}>AI 역할</div>
                                     <img src='/assets/result/ai_role_img.png' alt="AI 역할" className={styles.roleImage} />
                                 </div>
                                 <p className={styles.roleLabel}>{role_play.ai_role}</p>
@@ -110,12 +110,17 @@ function Result() {
                                 '고급 어휘 사용 비율'
                             )}
                         </div>
-                        <p><strong>주요 사용 어휘 표현:</strong> {language_development_analysis.vocabulary_use.new_used_words.join(', ')}</p>
+                        <p><strong>주요 사용 어휘 표현:</strong></p>
+                        <div className={styles.wordButtonContainer}>
+                            {language_development_analysis.vocabulary_use.new_used_words.map((word, index) => (
+                                <span key={index} className={styles.wordButton}>{word}</span>
+                            ))}
+                        </div>
                         <div className={styles.analysisList}>
                             {language_development_analysis.sentence_structure.map((item, index) => (
                                 <div key={index} className={styles.analysisItem}>
-                                    <p>{item.dialog_conent}</p>
-                                    <p>{item.comment}</p>
+                                    <p className={styles.sentence}>{item.dialog_conent}</p>
+                                    <p className={styles.comment}>{item.comment}</p>
                                 </div>
                             ))}
                         </div>
@@ -132,12 +137,17 @@ function Result() {
                                 '감정 표현 문장 활용 비율'
                             )}
                         </div>
-                        <p><strong>주요 사용 감정 표현:</strong> {emotional_development_analysis.vocabulary_use.new_used_words.join(', ')}</p>
+                        <p><strong>주요 사용 감정 표현:</strong></p>
+                        <div className={styles.wordButtonContainer}>
+                            {emotional_development_analysis.vocabulary_use.new_used_words.map((word, index) => (
+                                <span key={index} className={styles.wordButton}>{word}</span>
+                            ))}
+                        </div>
                         <div className={styles.analysisList}>
                             {emotional_development_analysis.sentence_structure.map((item, index) => (
                                 <div key={index} className={styles.analysisItem}>
-                                    <p>{item.dialog_conent}</p>
-                                    <p>{item.comment}</p>
+                                    <p className={styles.sentence}>{item.dialog_conent}</p>
+                                    <p className={styles.comment}>{item.comment}</p>
                                 </div>
                             ))}
                         </div>
