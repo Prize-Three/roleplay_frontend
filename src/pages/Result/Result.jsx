@@ -29,6 +29,33 @@ function Result() {
 
     const { role_play, conversation_summary, language_development_analysis, emotional_development_analysis, interaction_patterns, comprehensive_results } = analysisData;
 
+    const renderProgressCircle = (percentage, label) => {
+        const strokeDasharray = `${percentage} ${100 - percentage}`;
+        return (
+            <div className={styles.progressItem}>
+                <p>{label}</p>
+                <svg className={styles.progressCircle} viewBox="0 0 36 36">
+                    <path
+                        className={styles.circleBg}
+                        d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <path
+                        className={styles.circle}
+                        strokeDasharray={strokeDasharray}
+                        d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <text x="18" y="20.35" className={styles.percentage}>
+                        {percentage}%
+                    </text>
+                </svg>
+            </div>
+        );
+    };
+
     return (
         <Layout>
             <div className={styles.resultContainer}>
@@ -51,8 +78,16 @@ function Result() {
                     </div>
                     <div className={styles.section}>
                         <h2>언어 발달 분석</h2>
-                        <p><strong>기본 어휘 사용 비율:</strong> {(language_development_analysis.vocabulary_use.basic_word_count / language_development_analysis.vocabulary_use.total_word_count * 100).toFixed(2)}%</p>
-                        <p><strong>고급 어휘 사용 비율:</strong> {(language_development_analysis.vocabulary_use.new_word_count / language_development_analysis.vocabulary_use.total_word_count * 100).toFixed(2)}%</p>
+                        <div className={styles.progressContainer}>
+                            {renderProgressCircle(
+                                ((language_development_analysis.vocabulary_use.basic_word_count / (language_development_analysis.vocabulary_use.basic_word_count + language_development_analysis.vocabulary_use.new_word_count)) * 100).toFixed(2),
+                                '기본 어휘 사용 비율'
+                            )}
+                            {renderProgressCircle(
+                                ((language_development_analysis.vocabulary_use.new_word_count / (language_development_analysis.vocabulary_use.basic_word_count + language_development_analysis.vocabulary_use.new_word_count)) * 100).toFixed(2),
+                                '고급 어휘 사용 비율'
+                            )}
+                        </div>
                         <p><strong>주요 사용 어휘 표현:</strong> {language_development_analysis.vocabulary_use.new_used_words.join(', ')}</p>
                         <div className={styles.analysisList}>
                             {language_development_analysis.sentence_structure.map((item, index) => (
@@ -65,8 +100,16 @@ function Result() {
                     </div>
                     <div className={styles.section}>
                         <h2>감정 발달 분석</h2>
-                        <p><strong>감정 어휘 사용 비율:</strong> {(emotional_development_analysis.vocabulary_use.basic_word_count / emotional_development_analysis.vocabulary_use.total_word_count * 100).toFixed(2)}%</p>
-                        <p><strong>감정 표현 문장 활용 비율:</strong> {(emotional_development_analysis.vocabulary_use.new_word_count / emotional_development_analysis.vocabulary_use.total_word_count * 100).toFixed(2)}%</p>
+                        <div className={styles.progressContainer}>
+                            {renderProgressCircle(
+                                ((emotional_development_analysis.vocabulary_use.basic_word_count / (emotional_development_analysis.vocabulary_use.basic_word_count + emotional_development_analysis.vocabulary_use.new_word_count)) * 100).toFixed(2),
+                                '감정 어휘 사용 비율'
+                            )}
+                            {renderProgressCircle(
+                                ((emotional_development_analysis.vocabulary_use.new_word_count / (emotional_development_analysis.vocabulary_use.basic_word_count + emotional_development_analysis.vocabulary_use.new_word_count)) * 100).toFixed(2),
+                                '감정 표현 문장 활용 비율'
+                            )}
+                        </div>
                         <p><strong>주요 사용 감정 표현:</strong> {emotional_development_analysis.vocabulary_use.new_used_words.join(', ')}</p>
                         <div className={styles.analysisList}>
                             {emotional_development_analysis.sentence_structure.map((item, index) => (
