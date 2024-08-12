@@ -109,7 +109,7 @@ function Chat() {
                     <div className={styles.chatHeader}>
                         <h1>역할놀이 챗봇</h1>
                         <button className={styles.stopButton} onClick={handleStopClick}>
-                            X
+                            그만할래
                         </button>
                     </div>
                     <div className={styles.chatBody}>
