@@ -56,6 +56,50 @@ function Result() {
         );
     };
 
+    const renderInteractionChart = () => {
+        const childResponses = interaction_patterns.child_questions_and_responses_rate.child_responses;
+        const aiResponses = interaction_patterns.child_questions_and_responses_rate.ai_responses;
+        const totalResponses = childResponses + aiResponses;
+        const childPercentage = (childResponses / totalResponses) * 100;
+        const aiPercentage = (aiResponses / totalResponses) * 100;
+
+        return (
+            <div className={styles.interactionChart}>
+                <svg viewBox="0 0 40 40" className={styles.circularChart}>
+                    <circle
+                        className={styles.circleBg}
+                        cx="20"
+                        cy="20"
+                        r="15.9155"
+                        fill="none"
+                    />
+                    <circle
+                        className={styles.childCircle}
+                        cx="20"
+                        cy="20"
+                        r="15.9155"
+                        fill="none"
+                        strokeDasharray={`${childPercentage} ${100 - childPercentage}`}
+                        strokeDashoffset="25"
+                    />
+                    <circle
+                        className={styles.aiCircle}
+                        cx="20"
+                        cy="20"
+                        r="15.9155"
+                        fill="none"
+                        strokeDasharray={`${aiPercentage} ${100 - aiPercentage}`}
+                        strokeDashoffset={`calc(25 - ${childPercentage})`}
+                    />
+                </svg>
+                <div className={styles.chartLabels}>
+                    <div className={styles.childLabel} style={{ color: '#297EFF' }}>민규: {childPercentage.toFixed(1)}%</div>
+                    <div className={styles.aiLabel} style={{ color: '#F55A00' }}>AI: {aiPercentage.toFixed(1)}%</div>
+                </div>
+            </div>
+        );
+    };
+
     return (
         <Layout>
             <div className={styles.resultContainer}>
@@ -154,10 +198,7 @@ function Result() {
                     </div>
                     <div className={styles.section}>
                         <h2>상호작용 분석</h2>
-                        <div className={styles.infoGrid}>
-                            <div className={styles.infoItem}><strong>민규의 발화 비율:</strong> {interaction_patterns.child_questions_and_responses_rate.child_responses}</div>
-                            <div className={styles.infoItem}><strong>AI의 발화 비율:</strong> {interaction_patterns.child_questions_and_responses_rate.ai_responses}</div>
-                        </div>
+                        {renderInteractionChart()}
                         <p className={styles.summary}><strong>대화 주도성 분석:</strong> {interaction_patterns.interaction_summary}</p>
                     </div>
                     <div className={styles.section}>

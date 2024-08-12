@@ -236,3 +236,50 @@
 .comment {
   color: #555;
 }
+
+.interactionChart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.circularChart {
+  width: 140px;
+  height: 140px;
+  position: relative;
+}
+
+.circleBg {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 4;
+}
+
+.childCircle {
+  fill: none;
+  stroke: #297EFF;
+  stroke-width: 4;
+  stroke-linecap: butt;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.aiCircle {
+  fill: none;
+  stroke: #F55A00;
+  stroke-width: 4;
+  stroke-linecap: butt;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.chartLabels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.childLabel, .aiLabel {
+  font-weight: bold;
+  color: #333;
+}
