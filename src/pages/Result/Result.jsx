@@ -60,7 +60,7 @@ function Result() {
         <Layout>
             <div className={styles.resultContainer}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>놀이 결과</h1>
+                    <h1 className={styles.title}>역할놀이를 통한 발달 분석</h1>
                     <button className={styles.backButton} onClick={() => navigate('/')}>돌아가기</button>
                 </div>
                 <div className={styles.body}>
@@ -95,7 +95,7 @@ function Result() {
                         </div>
                     </div>
                     <div className={styles.section}>
-                        <h2>대화 요약</h2>
+                        <h2>역할놀이 대화 내용 요약</h2>
                         <p className={styles.summary}>{conversation_summary}</p>
                     </div>
                     <div className={styles.section}>
