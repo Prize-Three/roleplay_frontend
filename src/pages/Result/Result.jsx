@@ -80,7 +80,7 @@ function Result() {
                         <div className={styles.roleGrid}>
                             <div className={styles.roleItem}>
                                 <div className={styles.imageWrapper}>
-                                    <div className={styles.roleOverlay}>민규 역할</div>
+                                    <div className={styles.roleOverlay}>사용자 역할</div>
                                     <img src='/assets/result/child_role_img.png' alt="민규 역할" className={styles.roleImage} />
                                 </div>
                                 <p className={styles.roleLabel}>{role_play.child_role}</p>
