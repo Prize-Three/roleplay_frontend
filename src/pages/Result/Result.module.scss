@@ -44,7 +44,7 @@
 
 .section {
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 25px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -73,38 +73,55 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+
 }
 
 .roleItem {
   text-align: center;
   background-color: #f0f8ff;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: relative;
+  width: 300px;
+  margin: auto;
 }
 
 .imageWrapper {
   position: relative;
+  border-radius: 8px; /* 이미지에 둥근 모서리 추가 */
+  overflow: hidden; /* 이미지가 컨테이너를 벗어나지 않도록 설정 */
 }
 
 .roleImage {
-  width: 100%;
+  width: 90%;
   height: auto;
-  max-width: 150px;
   margin-bottom: 10px;
+  border-radius: 20px;;
 }
 
 .roleOverlay {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  // position: absolute;
+  // top: 10px;
+  // left: 50%;
+  // transform: translateX(-50%);
+
+  margin: auto;
+  width: 100px;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* 더 진한 배경색으로 가독성 향상 */
   color: white;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   font-weight: bold;
+  font-size: 16px;
+  white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 설정 */
+}
+
+.roleLabel {
+  font-weight: bold; /* 강조된 텍스트 */
+  margin-top: 5px; /* 이미지와 텍스트 사이의 간격 */
+  margin-bottom: 0px;
 }
 
 .progressContainer {
@@ -130,7 +147,7 @@
 
 .circle {
   fill: none;
-  stroke: #4caf50;
+  stroke: #4caf50; /* 기본 어휘 색상 */
   stroke-width: 2.8;
   stroke-linecap: round;
   transition: stroke-dasharray 0.3s ease;

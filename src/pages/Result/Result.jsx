@@ -80,17 +80,17 @@ function Result() {
                         <div className={styles.roleGrid}>
                             <div className={styles.roleItem}>
                                 <div className={styles.imageWrapper}>
-                                    <img src='/assets/result/ai_role_img.png' alt="환자" className={styles.roleImage} />
-                                    <div className={styles.roleOverlay}>AI 역할</div>
+                                    <div className={styles.roleOverlay}>민규 역할</div>
+                                    <img src='/assets/result/child_role_img.png' alt="민규 역할" className={styles.roleImage} />
                                 </div>
-                                <p>환자</p>
+                                <p className={styles.roleLabel}>{role_play.child_role}</p>
                             </div>
                             <div className={styles.roleItem}>
                                 <div className={styles.imageWrapper}>
-                                    <img src='/assets/result/child_role_img.png' alt="의사" className={styles.roleImage} />
-                                    <div className={styles.roleOverlay}>민규 역할</div>
+                                    <div className={styles.roleOverlay}>AI 역할</div>
+                                    <img src='/assets/result/ai_role_img.png' alt="AI 역할" className={styles.roleImage} />
                                 </div>
-                                <p>의사</p>
+                                <p className={styles.roleLabel}>{role_play.ai_role}</p>
                             </div>
                         </div>
                     </div>
