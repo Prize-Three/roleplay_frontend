@@ -66,15 +66,37 @@ function Result() {
                 <div className={styles.body}>
                     <div className={styles.section}>
                         <h2>기본 정보</h2>
-                        <p><strong>역할놀이 종류:</strong> {role_play.type}</p>
-                        <p><strong>시작 시간:</strong> {role_play.start_time}</p>
-                        <p><strong>진행 시간:</strong> {role_play.end_time}</p>
-                        <p><strong>민규 역할:</strong> {role_play.child_role}</p>
-                        <p><strong>AI 역할:</strong> {role_play.ai_role}</p>
+                        <div className={styles.infoColumn}>
+                            <div className={styles.infoItem}>
+                                <strong>역할놀이 종류:</strong> {role_play.type}
+                            </div>
+                            <div className={styles.infoItem}>
+                                <strong>시작 시간:</strong> {role_play.start_time}
+                            </div>
+                            <div className={styles.infoItem}>
+                                <strong>진행 시간:</strong> {role_play.end_time}
+                            </div>
+                        </div>
+                        <div className={styles.roleGrid}>
+                            <div className={styles.roleItem}>
+                                <div className={styles.imageWrapper}>
+                                    <img src='/assets/result/ai_role_img.png' alt="환자" className={styles.roleImage} />
+                                    <div className={styles.roleOverlay}>AI 역할</div>
+                                </div>
+                                <p>환자</p>
+                            </div>
+                            <div className={styles.roleItem}>
+                                <div className={styles.imageWrapper}>
+                                    <img src='/assets/result/child_role_img.png' alt="의사" className={styles.roleImage} />
+                                    <div className={styles.roleOverlay}>민규 역할</div>
+                                </div>
+                                <p>의사</p>
+                            </div>
+                        </div>
                     </div>
                     <div className={styles.section}>
                         <h2>대화 요약</h2>
-                        <p>{conversation_summary}</p>
+                        <p className={styles.summary}>{conversation_summary}</p>
                     </div>
                     <div className={styles.section}>
                         <h2>언어 발달 분석</h2>
@@ -122,13 +144,15 @@ function Result() {
                     </div>
                     <div className={styles.section}>
                         <h2>상호작용 분석</h2>
-                        <p><strong>민규의 발화 비율:</strong> {interaction_patterns.child_questions_and_responses_rate.child_responses}</p>
-                        <p><strong>AI의 발화 비율:</strong> {interaction_patterns.child_questions_and_responses_rate.ai_responses}</p>
-                        <p><strong>대화 주도성 분석:</strong> {interaction_patterns.interaction_summary}</p>
+                        <div className={styles.infoGrid}>
+                            <div className={styles.infoItem}><strong>민규의 발화 비율:</strong> {interaction_patterns.child_questions_and_responses_rate.child_responses}</div>
+                            <div className={styles.infoItem}><strong>AI의 발화 비율:</strong> {interaction_patterns.child_questions_and_responses_rate.ai_responses}</div>
+                        </div>
+                        <p className={styles.summary}><strong>대화 주도성 분석:</strong> {interaction_patterns.interaction_summary}</p>
                     </div>
                     <div className={styles.section}>
                         <h2>종합 평가</h2>
-                        <p>{comprehensive_results}</p>
+                        <p className={styles.summary}>{comprehensive_results}</p>
                     </div>
                 </div>
             </div>

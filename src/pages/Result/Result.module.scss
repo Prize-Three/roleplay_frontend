@@ -2,16 +2,11 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  // max-width: 800px;
   margin: 0 auto;
-  background-color: #f9f9f9;
+  background-color: #DEE7FF;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  // 기본 위치 세팅
   width: 100%;
-  height: 100%;
-  border-radius: 10px;
 }
 
 .header {
@@ -53,12 +48,63 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 .section h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 15px;
   color: #555;
+  position: relative;
+  padding-left: 30px;
+}
+
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.infoItem {
+  margin-bottom: 10px;
+}
+
+.roleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.roleItem {
+  text-align: center;
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.roleImage {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.roleOverlay {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .progressContainer {
@@ -84,7 +130,7 @@
 
 .circle {
   fill: none;
-  stroke: #4caf50; /* 기본 어휘 색상 */
+  stroke: #4caf50;
   stroke-width: 2.8;
   stroke-linecap: round;
   transition: stroke-dasharray 0.3s ease;
@@ -94,4 +140,17 @@
   fill: #333;
   font-size: 0.5em;
   text-anchor: middle;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.summary {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
