@@ -65,18 +65,18 @@ function Result() {
 
         return (
             <div className={styles.interactionChart}>
-                <svg viewBox="0 0 40 40" className={styles.circularChart}>
+                <svg viewBox="0 0 36 36" className={styles.circularChart}>
                     <circle
                         className={styles.circleBg}
-                        cx="20"
-                        cy="20"
+                        cx="18"
+                        cy="18"
                         r="15.9155"
                         fill="none"
                     />
                     <circle
                         className={styles.childCircle}
-                        cx="20"
-                        cy="20"
+                        cx="18"
+                        cy="18"
                         r="15.9155"
                         fill="none"
                         strokeDasharray={`${childPercentage} ${100 - childPercentage}`}
@@ -84,16 +84,16 @@ function Result() {
                     />
                     <circle
                         className={styles.aiCircle}
-                        cx="20"
-                        cy="20"
+                        cx="18"
+                        cy="18"
                         r="15.9155"
                         fill="none"
                         strokeDasharray={`${aiPercentage} ${100 - aiPercentage}`}
-                        strokeDashoffset={`calc(25 - ${childPercentage})`}
+                        strokeDashoffset={25 - childPercentage}
                     />
                 </svg>
                 <div className={styles.chartLabels}>
-                    <div className={styles.childLabel} style={{ color: '#297EFF' }}>민규: {childPercentage.toFixed(1)}%</div>
+                    <div className={styles.childLabel} style={{ color: '#297EFF' }}>사용자: {childPercentage.toFixed(1)}%</div>
                     <div className={styles.aiLabel} style={{ color: '#F55A00' }}>AI: {aiPercentage.toFixed(1)}%</div>
                 </div>
             </div>
@@ -123,7 +123,7 @@ function Result() {
                         </div>
                         <div className={styles.roleGrid}>
                             <div className={styles.roleItem}>
-                                <div className={styles.roleOverlay}>민규 역할</div>
+                                <div className={styles.roleOverlay}>사용자 역할</div>
                                 <div className={styles.imageWrapper}>
                                     <img src='/assets/result/child_role_img.png' alt="민규 역할" className={styles.roleImage} />
                                 </div>
@@ -203,6 +203,7 @@ function Result() {
                     </div>
                     <div className={styles.section}>
                         <h2>종합 평가</h2>
+                        <img src='/assets/result/great.png' alt="Great" className={styles.greatImage} />
                         <p className={styles.summary}>{comprehensive_results}</p>
                     </div>
                 </div>
