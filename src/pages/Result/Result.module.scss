@@ -62,11 +62,23 @@
 }
 
 .section h2 {
-  font-size: 22px;
+  font-size: 30px;
   margin-bottom: 15px;
   color: #555;
   position: relative;
-  // padding-left: 30px;
+  padding-left: 20px; /* 텍스트와 직사각형 사이의 간격 */
+}
+
+.section h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px; /* 직사각형의 너비 */
+  height: 100%; /* 직사각형의 높이 */
+  background: linear-gradient(to bottom, #297EFF 0%, #67C8F3 61%, #ABDCD9 100%);
+  border-radius: 5px; /* 직사각형의 모서리를 약간 둥글게 */
 }
 
 .infoColumn {
