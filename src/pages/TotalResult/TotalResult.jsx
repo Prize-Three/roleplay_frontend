@@ -10,7 +10,7 @@ function TotalResult() {
     useEffect(() => {
         const fetchHistoryList = async () => {
             try {
-                const response = await fetch('http://localhost:8000/history');
+                const response = await fetch('http://localhost:8000/report/roleplay/chat/analysis?user_id=1');
                 if (!response.ok) {
                     throw new Error('데이터를 가져오는데 실패했습니다.');
                 }
