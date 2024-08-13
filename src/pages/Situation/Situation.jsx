@@ -73,7 +73,8 @@ function Situation() {
                 // 응답에서 history_id를 받아와 URL에 추가
                 const queryParams = new URLSearchParams({
                     ...dataToSend,
-                    history_id: responseData.history_id
+                    history_id: 14,
+                    // history_id: responseData.history_id
                 }).toString();
 
                 navigate(`/chat?${queryParams}`);

@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './Result.module.scss';
-import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 
 function Result() {
     const navigate = useNavigate();
+    const { historyId } = useParams(); // URL에서 historyId 추출
+    const numericHistoryId = parseInt(historyId, 10); // 숫자 형태로 변환
     const [analysisData, setAnalysisData] = useState(null);
 
     useEffect(() => {
         const fetchAnalysisData = async () => {
             try {
-                const response = await fetch('http://localhost:8000/analysis');
+                const response = await fetch(`http://localhost:8000/report/report/${numericHistoryId}`);
                 if (!response.ok) {
                     throw new Error('데이터를 가져오는데 실패했습니다.');
                 }
@@ -20,15 +22,25 @@ function Result() {
                 console.error('Error fetching data:', error);
             }
         };
-        fetchAnalysisData();
-    }, []);
+
+        if (numericHistoryId) {
+            fetchAnalysisData();
+        }
+    }, [numericHistoryId]);
 
     if (!analysisData) {
         return <div>Loading...</div>;
     }
 
-    const { role_play, conversation_summary, language_development_analysis, emotional_development_analysis, interaction_patterns, comprehensive_results } = analysisData;
+    // 서버에서 받은 데이터 구조에 따라 변수 할당
+    const {
+        history: { type, child_role, ai_role, start_time, end_time },
+        report: { conversation_summary, interaction_summary, comprehensive_results },
+        language_development: { vocabulary, sentence_structure: languageSentenceStructure },
+        emotional_development: { vocabulary: emotionalVocabulary, sentence_structure: emotionalSentenceStructure }
+    } = analysisData;
 
+    // renderProgressCircle 함수 정의
     const renderProgressCircle = (percentage, label) => {
         const strokeDasharray = `${percentage} ${100 - percentage}`;
         return (
@@ -56,9 +68,10 @@ function Result() {
         );
     };
 
+    // renderInteractionChart 함수 정의
     const renderInteractionChart = () => {
-        const childResponses = interaction_patterns.child_questions_and_responses_rate.child_responses;
-        const aiResponses = interaction_patterns.child_questions_and_responses_rate.ai_responses;
+        const childResponses = analysisData.report.child_responses;
+        const aiResponses = analysisData.report.child_questions;
         const totalResponses = childResponses + aiResponses;
         const childPercentage = (childResponses / totalResponses) * 100;
         const aiPercentage = (aiResponses / totalResponses) * 100;
@@ -100,6 +113,7 @@ function Result() {
         );
     };
 
+    // 컴포넌트 렌더링 부분
     return (
         <Layout>
             <div className={styles.resultContainer}>
@@ -112,13 +126,13 @@ function Result() {
                         <h2>기본 정보</h2>
                         <div className={styles.infoColumn}>
                             <div className={styles.infoItem}>
-                                <strong>역할놀이 종류:</strong> {role_play.type}
+                                <strong>역할놀이 종류:</strong> {type}
                             </div>
                             <div className={styles.infoItem}>
-                                <strong>시작 시간:</strong> {role_play.start_time}
+                                <strong>시작 시간:</strong> {start_time}
                             </div>
                             <div className={styles.infoItem}>
-                                <strong>진행 시간:</strong> {role_play.end_time}
+                                <strong>진행 시간:</strong> {end_time}
                             </div>
                         </div>
                         <div className={styles.roleGrid}>
@@ -127,14 +141,14 @@ function Result() {
                                 <div className={styles.imageWrapper}>
                                     <img src='/assets/result/child_role_img.png' alt="민규 역할" className={styles.roleImage} />
                                 </div>
-                                <p className={styles.roleLabel}>{role_play.child_role}</p>
+                                <p className={styles.roleLabel}>{child_role}</p>
                             </div>
                             <div className={styles.roleItem}>
                                 <div className={styles.roleOverlay}>AI 역할</div>
                                 <div className={styles.imageWrapper}>
                                     <img src='/assets/result/ai_role_img.png' alt="AI 역할" className={styles.roleImage} />
                                 </div>
-                                <p className={styles.roleLabel}>{role_play.ai_role}</p>
+                                <p className={styles.roleLabel}>{ai_role}</p>
                             </div>
                         </div>
                     </div>
@@ -146,24 +160,24 @@ function Result() {
                         <h2>언어 발달 분석</h2>
                         <div className={styles.progressContainer}>
                             {renderProgressCircle(
-                                ((language_development_analysis.vocabulary_use.basic_word_count / (language_development_analysis.vocabulary_use.basic_word_count + language_development_analysis.vocabulary_use.new_word_count)) * 100).toFixed(2),
+                                ((vocabulary.basic_word_count / (vocabulary.basic_word_count + vocabulary.new_word_count)) * 100).toFixed(2),
                                 '기본 어휘 사용 비율'
                             )}
                             {renderProgressCircle(
-                                ((language_development_analysis.vocabulary_use.new_word_count / (language_development_analysis.vocabulary_use.basic_word_count + language_development_analysis.vocabulary_use.new_word_count)) * 100).toFixed(2),
+                                ((vocabulary.new_word_count / (vocabulary.basic_word_count + vocabulary.new_word_count)) * 100).toFixed(2),
                                 '고급 어휘 사용 비율'
                             )}
                         </div>
                         <p><strong>주요 사용 어휘 표현:</strong></p>
                         <div className={styles.wordButtonContainer}>
-                            {language_development_analysis.vocabulary_use.new_used_words.map((word, index) => (
+                            {vocabulary.new_used_words.map((word, index) => (
                                 <span key={index} className={styles.wordButton}>{word}</span>
                             ))}
                         </div>
                         <div className={styles.analysisList}>
-                            {language_development_analysis.sentence_structure.map((item, index) => (
+                            {languageSentenceStructure.map((item, index) => (
                                 <div key={index} className={styles.analysisItem}>
-                                    <p className={styles.sentence}>{item.dialog_conent}</p>
+                                    <p className={styles.sentence}>{item.dialog_content}</p>
                                     <p className={styles.comment}>{item.comment}</p>
                                 </div>
                             ))}
@@ -173,24 +187,24 @@ function Result() {
                         <h2>감정 발달 분석</h2>
                         <div className={styles.progressContainer}>
                             {renderProgressCircle(
-                                ((emotional_development_analysis.vocabulary_use.basic_word_count / (emotional_development_analysis.vocabulary_use.basic_word_count + emotional_development_analysis.vocabulary_use.new_word_count)) * 100).toFixed(2),
+                                ((emotionalVocabulary.basic_word_count / (emotionalVocabulary.basic_word_count + emotionalVocabulary.new_word_count)) * 100).toFixed(2),
                                 '감정 어휘 사용 비율'
                             )}
                             {renderProgressCircle(
-                                ((emotional_development_analysis.vocabulary_use.new_word_count / (emotional_development_analysis.vocabulary_use.basic_word_count + emotional_development_analysis.vocabulary_use.new_word_count)) * 100).toFixed(2),
+                                ((emotionalVocabulary.new_word_count / (emotionalVocabulary.basic_word_count + emotionalVocabulary.new_word_count)) * 100).toFixed(2),
                                 '감정 표현 문장 활용 비율'
                             )}
                         </div>
                         <p><strong>주요 사용 감정 표현:</strong></p>
                         <div className={styles.wordButtonContainer}>
-                            {emotional_development_analysis.vocabulary_use.new_used_words.map((word, index) => (
+                            {emotionalVocabulary.new_used_words.map((word, index) => (
                                 <span key={index} className={styles.wordButton}>{word}</span>
                             ))}
                         </div>
                         <div className={styles.analysisList}>
-                            {emotional_development_analysis.sentence_structure.map((item, index) => (
+                            {emotionalSentenceStructure.map((item, index) => (
                                 <div key={index} className={styles.analysisItem}>
-                                    <p className={styles.sentence}>{item.dialog_conent}</p>
+                                    <p className={styles.sentence}>{item.dialog_content}</p>
                                     <p className={styles.comment}>{item.comment}</p>
                                 </div>
                             ))}
@@ -199,7 +213,7 @@ function Result() {
                     <div className={styles.section}>
                         <h2>상호작용 분석</h2>
                         {renderInteractionChart()}
-                        <p className={styles.summary}><strong>대화 주도성 분석:</strong> {interaction_patterns.interaction_summary}</p>
+                        <p className={styles.summary}><strong>대화 주도성 분석:</strong> {interaction_summary}</p>
                     </div>
                     <div className={styles.section}>
                         <h2>종합 평가</h2>

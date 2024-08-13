@@ -101,15 +101,13 @@ function Chat() {
     const handleConfirmExit = async () => {
         // 서버로 history_id를 JSON 형태로 전송
         try {
-            await fetch('http://localhost:8000/end-chat', {
+            await fetch('http://localhost:8000/report/roleplay/analysis', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    chat_history_id: {
-                        history_id: historyId
-                    }
+                    history_id: historyId
                 })
             });
         } catch (error) {
