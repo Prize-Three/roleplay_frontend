@@ -24,7 +24,7 @@ function Situation() {
         '승무원 놀이': ['승객', '승무원'],
     };
 
-    const voiceOptions = ['음성A', '음성B', '음성C', '음성D'];
+    const voiceOptions = ['여자 어린이 아고미', '남자 어린이 아고미', '여자 아고미', '남자 아고미'];
 
     const handleRolePlaySelect = (gameType) => {
         if (gameType === selectedGameType) {
@@ -46,15 +46,17 @@ function Situation() {
 
     const handleNextStep = async () => {
         if (selectedGameType && selectedUserRole && selectedAIRole && selectedAIVoice) {
+            const voiceIndex = voiceOptions.indexOf(selectedAIVoice) + 1; // 인덱스는 1부터 시작
             const dataToSend = {
-                voice_id: selectedAIVoice,
+                voice_id: voiceIndex,
                 situation: selectedGameType,
                 my_role: selectedUserRole,
-                ai_role: selectedAIRole
+                ai_role: selectedAIRole,
+                user_id: 1,
             };
 
             try {
-                const response = await fetch('http://localhost:8000/select', {
+                const response = await fetch('http://localhost:8000/server/roleplay', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -40,7 +40,7 @@ function Chat() {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:8000/chat', {
+            const response = await fetch('http://localhost:8000/server/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
