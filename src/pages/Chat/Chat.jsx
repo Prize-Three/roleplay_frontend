@@ -11,7 +11,7 @@ function Chat() {
     const selectedGameType = queryParams.get('selectedGameType');
     const selectedUserRole = queryParams.get('selectedUserRole');
     const selectedAIRole = queryParams.get('selectedAIRole');
-    const selectedAIVoice = queryParams.get('selectedAIVoice');
+    let selectedAIVoice = queryParams.get('selectedAIVoice');
     const historyId = queryParams.get('history_id'); // URL에서 history_id 가져오기
 
     const [messages, setMessages] = useState([]);
@@ -118,16 +118,31 @@ function Chat() {
         navigate('/');
     };
 
+    const voiceOptions = ['여자 어린이 아고미', '남자 어린이 아고미', '여자 아고미', '남자 아고미'];
+    const voiceMapping = {
+        '여자 어린이 아고미': 'ko-KR-Wavenet-A',
+        '남자 어린이 아고미': 'ko-KR-Wavenet-C',
+        '여자 아고미': 'ko-KR-Wavenet-B',
+        '남자 아고미': 'ko-KR-Wavenet-D'
+    };
+
+    // URL에서 voice_id를 가져와서 음성 이름으로 변환
+    const voiceId = parseInt(queryParams.get('voice_id'), 10);
+    selectedAIVoice = voiceOptions[voiceId - 1]; // 인덱스는 0부터 시작하므로 1을 뺌
+    console.log('Selected AI Voice:', selectedAIVoice);
+
     const textToSpeech = async (text) => {
         const apiKey = process.env.REACT_APP_GOOGLE_TTS_API_KEY; // 환경 변수에서 API 키 가져오기
         const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`;
-    
+        const voiceName = voiceMapping[selectedAIVoice] || 'ko-KR-Wavenet-A'; // 기본값 설정
+
+
         const data = {
             input: { text },
             voice: {
                 languageCode: 'ko-KR',
-                name: 'ko-KR-Neural2-C',
-                ssmlGender: 'MALE',
+                name: voiceName,
+                ssmlGender: 'NEUTRAL',
             },
             audioConfig: {
                 audioEncoding: "MP3",

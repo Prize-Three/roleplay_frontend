@@ -45,6 +45,7 @@ function Situation() {
         }
     };
 
+    
     const handleNextStep = async () => {
         if (selectedGameType && selectedUserRole && selectedAIRole && selectedAIVoice) {
             const voiceIndex = voiceOptions.indexOf(selectedAIVoice) + 1; // 인덱스는 1부터 시작
