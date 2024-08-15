@@ -16,12 +16,11 @@ function Situation() {
     const roleOptions = {
         '병원 놀이': ['의사', '환자'],
         '요리 놀이': ['요리사', '손님'], 
-        '학교 놀이': ['선생님', '학생', '교장선생님'],
-        '시장 놀이': ['상인', '소비자', '경찰'],
-        '가족 놀이': ['아빠', '엄마', '아들', '딸'],
-        '소꿉 놀이': ['너구리', '사자', '토끼'],
+        '학교 놀이': ['선생님', '학생'],
+        '시장 놀이': ['상인', '소비자'],
+        '가족 놀이': ['아빠', '엄마', '오빠', '언니', '여동생', '남동생'],
         '소방관 놀이': ['소방관', '도움이 필요한 사람'],
-        '연예인 놀이': ['가수', '배우', '메이크업 담당 선생님', '헤어 담당 선생님', '매니저'],
+        '공주와 왕자 놀이': ['공주', '왕자'],
         '승무원 놀이': ['승객', '승무원'],
     };
 
@@ -101,7 +100,7 @@ function Situation() {
         <Layout>
             <div className={styles.situationWrap}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}> AI와 함께하는 역할놀이 🐻</h1>
+                    <h1 className={styles.title}> 역할놀이 세부설정 🐻</h1>
                     <button onClick={handleExit} className={styles.exitButton}>돌아가기</button>
                 </div>
                 <div className={styles.content}>
@@ -120,6 +119,7 @@ function Situation() {
                         </div>
                     </div>
                     {rightPanelState && selectedGameType && (
+                        <div>
                         <div className={styles.rightPanel}>
                             <div className={styles.selectionSection}>
                                 <h3>
@@ -165,10 +165,12 @@ function Situation() {
                                     ))}
                                 </div>
                             </div>
-                            <div className={styles.nextButtonContainer}>
-                                <button onClick={handleNextStep} className={styles.nextButton}>다음 단계 ➪</button>
-                            </div>
                         </div>
+                        <div className={styles.nextButtonContainer}>
+                            {/* 다음 단계 ➪ */}
+                            <button onClick={handleNextStep} className={styles.nextButton}>역할놀이 시작</button>
+                        </div>
+                    </div>
                     )}
                 </div>
                 {showAlert && (
