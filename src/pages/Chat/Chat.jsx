@@ -58,7 +58,8 @@ function Chat() {
             const data = await response.json();
             const computerMessage = { sender: '컴퓨터', text: data.response };
             setMessages([...newMessages, computerMessage]);
-            speakText(computerMessage.text);
+            // speakText(computerMessage.text);
+            await textToSpeech(computerMessage.text); // TTS API 호출
         } catch (error) {
             console.error('Error:', error);
             setMessages([...newMessages, { sender: '컴퓨터', text: 'Error: 응답을 가져올 수 없습니다.' }]);
@@ -115,6 +116,43 @@ function Chat() {
         }
 
         navigate('/');
+    };
+
+    const textToSpeech = async (text) => {
+        const apiKey = process.env.REACT_APP_GOOGLE_TTS_API_KEY; // 환경 변수에서 API 키 가져오기
+        const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`;
+    
+        const data = {
+            input: { text },
+            voice: {
+                languageCode: 'ko-KR',
+                name: 'ko-KR-Neural2-C',
+                ssmlGender: 'MALE',
+            },
+            audioConfig: {
+                audioEncoding: "MP3",
+            },
+        };
+    
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json; charset=UTF-8",
+                },
+                body: JSON.stringify(data),
+            });
+    
+            const result = await response.json();
+            if (result.audioContent) {
+                const audio = new Audio(`data:audio/mp3;base64,${result.audioContent}`);
+                audio.play();
+            } else {
+                console.error('Error: No audio content received');
+            }
+        } catch (error) {
+            console.error('Error during TTS:', error);
+        }
     };
 
     return (
