@@ -50,7 +50,7 @@ function Result() {
     }
 
     const {
-        history: { type, child_role, ai_role, start_time, end_time, setting_voice },
+        history: { type, child_role, ai_role, start_time, end_time, setting_voice, duration },
         report: { conversation_summary, interaction_summary, comprehensive_results },
         language_development: { vocabulary, sentence_structure: languageSentenceStructure },
         emotional_development: { vocabulary: emotionalVocabulary, sentence_structure: emotionalSentenceStructure }
@@ -70,7 +70,7 @@ function Result() {
                                 <strong>시작 시간:</strong> {start_time}
                             </div>
                             <div className={styles.infoItem}>
-                                <strong>진행 시간:</strong> {end_time - start_time}
+                                <strong>진행 시간:</strong> {duration}
                             </div>
                         </div>
                         <div className={styles.roleGrid}>
