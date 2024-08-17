@@ -386,3 +386,23 @@ body {
 //                     -0.5px 0.5px 0 #000000; /* 아래쪽과 왼쪽에 검은색 그림자 */
 //     }
 // }
+
+.selectionSection h3 {
+    position: relative; // Ensure the h3 is positioned relative to allow absolute positioning of the ::before element
+    font-size: 17px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    color: #333333; // Dark gray color for the text
+
+    &::before {
+        content: ''; // No text content, just a decorative element
+        position: absolute;
+        left: -15px; // Adjust the position to your liking
+        top: 0;
+        width: 6px; // Narrow rectangle
+        height: 100%; // Full height of the h3 element
+        //background-color: #FF6B6B; // Color of the rectangle
+        background: linear-gradient(to bottom, #91B134, #468A49); /* 그라데이션 배경 */
+        border-radius: 4px; // Slightly rounded corners
+    }
+}

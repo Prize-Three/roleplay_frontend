@@ -118,12 +118,12 @@ function Chat() {
         navigate('/');
     };
 
-    const voiceOptions = ['여자 어린이 아고미', '남자 어린이 아고미', '여자 아고미', '남자 아고미'];
+    const voiceOptions = ['미고미', '보고미', '정고미', '유고미'];
     const voiceMapping = {
-        '여자 어린이 아고미': 'ko-KR-Wavenet-A',
-        '남자 어린이 아고미': 'ko-KR-Wavenet-C',
-        '여자 아고미': 'ko-KR-Wavenet-B',
-        '남자 아고미': 'ko-KR-Wavenet-D'
+        '미고미': 'ko-KR-Wavenet-A',
+        '보고미': 'ko-KR-Wavenet-A',
+        '정고미': 'ko-KR-Wavenet-C',
+        '유고미': 'ko-KR-Wavenet-A'
     };
 
     // URL에서 voice_id를 가져와서 음성 이름으로 변환
