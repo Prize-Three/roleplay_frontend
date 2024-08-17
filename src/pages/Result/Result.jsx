@@ -8,6 +8,7 @@ function Result() {
     const { historyId } = useParams();
     const numericHistoryId = parseInt(historyId, 10);
     const [analysisData, setAnalysisData] = useState(null);
+    const [scriptData, setScriptData] = useState([]); // State for script data
     const [activeTab, setActiveTab] = useState('basicInfo');
 
     useEffect(() => {
@@ -15,17 +16,32 @@ function Result() {
             try {
                 const response = await fetch(`http://localhost:8000/report/${numericHistoryId}`);
                 if (!response.ok) {
-                    throw new Error('데이터를 가져오는데 실패했습니다.');
+                    throw new Error('Failed to fetch analysis data.');
                 }
                 const data = await response.json();
                 setAnalysisData(data);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching analysis data:', error);
+            }
+        };
+
+        const fetchScriptData = async () => {
+            try {
+                const response = await fetch(`http://127.0.0.1:8000/dialog/${numericHistoryId}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch script data.');
+                }
+                const data = await response.json();
+                console.log('Fetched script data:', data); // Log fetched data
+                setScriptData(data);
+            } catch (error) {
+                console.error('Error fetching script data:', error);
             }
         };
 
         if (numericHistoryId) {
             fetchAnalysisData();
+            fetchScriptData(); // Fetch script data
         }
     }, [numericHistoryId]);
 
@@ -54,7 +70,7 @@ function Result() {
                                 <strong>시작 시간:</strong> {start_time}
                             </div>
                             <div className={styles.infoItem}>
-                                <strong>진행 시간:</strong> {end_time}
+                                <strong>진행 시간:</strong> {end_time - start_time}
                             </div>
                         </div>
                         <div className={styles.roleGrid}>
@@ -72,6 +88,20 @@ function Result() {
                                 </div>
                                 <p className={styles.roleLabel}>{ai_role}</p>
                             </div>
+                        </div>
+                    </div>
+                );
+            case 'fullScript':
+                return (
+                    <div className={styles.section}>
+                        <h2>전체 스크립트</h2>
+                        <div className={styles.scriptContainer}>
+                            {console.log(scriptData)} {/* Log script data */}
+                            {scriptData.map((entry, index) => (
+                                <div key={index} className={styles.scriptEntry}>
+                                    <strong>{entry.speaker}:</strong> {entry.message}
+                                </div>
+                            ))}
                         </div>
                     </div>
                 );
@@ -249,6 +279,12 @@ function Result() {
                                 onClick={() => setActiveTab('basicInfo')}
                             >
                                 기본 정보
+                            </button>
+                            <button
+                                className={activeTab === 'fullScript' ? styles.active : ''}
+                                onClick={() => setActiveTab('fullScript')}
+                            >
+                                전체 스크립트
                             </button>
                             <button
                                 className={activeTab === 'summary' ? styles.active : ''}
