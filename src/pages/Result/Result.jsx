@@ -59,38 +59,58 @@ function Result() {
     const renderContent = () => {
         switch (activeTab) {
             case 'basicInfo':
-                return (
-                    <div className={styles.section}>
-                        <h2>기본 정보</h2>
-                        <div className={styles.infoColumn}>
-                            <div className={styles.infoItem}>
-                                <strong>역할놀이 종류:</strong> {type}
-                            </div>
-                            <div className={styles.infoItem}>
-                                <strong>시작 시간:</strong> {start_time}
-                            </div>
-                            <div className={styles.infoItem}>
-                                <strong>진행 시간:</strong> {duration}
-                            </div>
+            let imageSrc;
+            if (type === '병원 놀이') {
+                imageSrc = '/assets/toy/hospital.jpeg';
+            } else if (type === '요리 놀이') {
+                imageSrc = '/assets/toy/cooking.jpeg';
+            } else if (type === '요리 놀이') {
+                imageSrc = '/assets/toy/cooking.jpeg';
+            } else if (type === '학교 놀이') {
+                imageSrc = '/assets/toy/cooking.jpeg';
+            } else if (type === '시장 놀이') {
+                imageSrc = '/assets/toy/cooking.jpeg';
+            } else if (type === '가족 놀이') {
+                imageSrc = '/assets/toy/cooking.jpeg';
+            } else if (type === '소방관 놀이') {
+                imageSrc = '/assets/toy/cooking.jpeg';
+            } else if (type === '공주와 왕자 놀이') {
+                imageSrc = '/assets/toy/princess.jpeg';
+            } else if (type === '승무원 놀이') {
+                imageSrc = '/assets/toy/cooking.jpeg';
+            } else {
+                imageSrc = '/assets/toy/gom.jpeg';
+            }
+
+            return (
+                <div className={styles.section}>
+                    <h2 className={styles.title}>기본 정보</h2>
+                    <div className={styles.infoSplit}>
+                        <div className={styles.leftInfo}>
+                            <img src={imageSrc} alt="Role Play Type" className={styles.roleImage} />
                         </div>
-                        <div className={styles.roleGrid}>
-                            <div className={styles.roleItem}>
-                                <div className={styles.roleOverlay}>사용자 역할</div>
-                                <div className={styles.imageWrapper}>
-                                    <img src='/assets/result/child_role_img.png' alt="민규 역할" className={styles.roleImage} />
+                        <div className={styles.rightInfo}>
+                            <div className={styles.infoItem}>
+                                <div className={styles.infoRow}>
+                                    <strong className={styles.label}>놀이 종류:</strong> <span>{type}</span>
                                 </div>
-                                <p className={styles.roleLabel}>{child_role}</p>
-                            </div>
-                            <div className={styles.roleItem}>
-                                <div className={styles.roleOverlay}>AI 역할</div>
-                                <div className={styles.imageWrapper}>
-                                    <img src='/assets/result/ai_role_img.png' alt="AI 역할" className={styles.roleImage} />
+                                <div className={styles.infoRow}>
+                                    <strong className={styles.label}>시작 시간:</strong> <span>{start_time}</span>
                                 </div>
-                                <p className={styles.roleLabel}>{ai_role}</p>
+                                <div className={styles.infoRow}>
+                                    <strong className={styles.label}>진행 시간:</strong> <span>{duration}</span>
+                                </div>
+                                <div className={styles.infoRow}>
+                                    <strong className={styles.label}>사용자 역할:</strong> <span>{child_role}</span>
+                                </div>
+                                <div className={styles.infoRow}>
+                                    <strong className={styles.label}>AI 역할:</strong> <span>{ai_role}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                );
+                </div>
+            );
             case 'fullScript':
                 return (
                     <div className={styles.section}>
