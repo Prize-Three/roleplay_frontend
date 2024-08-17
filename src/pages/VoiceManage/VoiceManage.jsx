@@ -12,7 +12,7 @@ function VoiceManage() {
             image: '/assets/common/m_agomi.png',
             features: ['포기는 없다!', '잘 먹음', ],
             voice: 'ko-KR-Wavenet-A',
-            text: '안녕 반가워. 나는 미고미야. 나는 뭐든지 주어진 기회에 대해 최선을 다하려고 해! 나는 지금 대학생이고, 학교에서 열리는 밸류업 대회를 준비하고 있어. 꼭 상을 받고 싶어 히히. 난 맛있는거 먹는 걸 좋아해. 내가 가장 좋아하는 음식은 떡볶이야. 공부할때 스트레스 받으면 떡볶이가 땡겨. 나랑 친구하지 않을래? 만나서 반가워.'
+            text: '안녕 반가워. 나는 미고미야. 나는 뭐든지 주어진 기회에 대해 최선을 다하려고 해! 나는 지금 대학생이고, 아고미 친구들과 학교에서 열리는 밸류업 대회를 준비하고 있어. 꼭 상을 받고 싶어 히히. 난 맛있는거 먹는 걸 좋아해. 내가 가장 좋아하는 음식은 떡볶이야. 공부할때 스트레스 받으면 떡볶이가 땡겨. 나랑 친구하지 않을래? 만나서 반가워.'
         },
         {
             name: '보고미',
@@ -78,7 +78,7 @@ function VoiceManage() {
                                     <span key={i} className={styles.feature}>{feature}</span>
                                 ))}
                                 <button onClick={() => playVoice(character.voice, character.text)} className={styles.voiceButton}>
-                                    🔊 소개 듣기 
+                                    ▶️ 소개 듣기 
                                 </button>
                             </div>
                         </div>

@@ -21,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 35px;
   background: rgba(0, 0, 0, 0.7);
   // padding: 10px;
   padding: 0px 10px 0px 10px;
@@ -74,11 +74,10 @@
 }
 
 .characterImage {
-  width: 170px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
-  // border-radius: 50%;
-  margin-bottom: 10px;
+  
 }
 
 .features {
@@ -89,34 +88,62 @@
   
 }
 
+// .feature {
+//   background-color: #f0f0f0;
+//   padding: 5px 10px;
+//   margin: 5px 0;
+//   border-radius: 10px;
+
+//   color: #6C3C21;
+//   // /* 글씨체에 테두리 효과 */
+//   // text-shadow: 1.5px 1.5px 0 #6C3C21, /* 아래쪽과 오른쪽에 검은색 그림자 */
+//   // -1.5px -1.5px 0 #6C3C21, /* 위쪽과 왼쪽에 검은색 그림자 */
+//   // 1.5px -1.5px 0 #6C3C21, /* 위쪽과 오른쪽에 검은색 그림자 */
+//   // -1.5px 1.5px 0 #6C3C21; /* 아래쪽과 왼쪽에 검은색 그림자 */
+
+//   background: linear-gradient(to bottom, #FFCC30, #F59346); /* 그라데이션 배경 */
+// }
+
 .feature {
-  background-color: #f0f0f0;
-  padding: 5px 10px;
-  margin: 5px 0;
-  border-radius: 10px;
+  border: 2px solid #FFC74D; /* Light yellow background for features */
+  background-color: white;
+  padding: 4px 6px; /* Adjust padding for better spacing */
+  margin: 5px 0; /* Space between feature items */
+  border-radius: 10px; /* Rounded corners */
+  color: #752626; /* Dark text color for contrast */
+  font-weight: bold; /* Make text bold for emphasis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 
-  color: #6C3C21;
-  // /* 글씨체에 테두리 효과 */
-  // text-shadow: 1.5px 1.5px 0 #6C3C21, /* 아래쪽과 오른쪽에 검은색 그림자 */
-  // -1.5px -1.5px 0 #6C3C21, /* 위쪽과 왼쪽에 검은색 그림자 */
-  // 1.5px -1.5px 0 #6C3C21, /* 위쪽과 오른쪽에 검은색 그림자 */
-  // -1.5px 1.5px 0 #6C3C21; /* 아래쪽과 왼쪽에 검은색 그림자 */
-
-  background: linear-gradient(to bottom, #FFCC30, #F59346); /* 그라데이션 배경 */
+  // &:hover {
+  //     background-color: #FFC74D; /* Darker yellow on hover */
+  // }
 }
 
 .voiceButton {
-  background-color: #FFCC30;
-  color: #752626;
-  padding: 5px 10px;
+  font-family: 'LaundryGothicBold', sans-serif;
+  font-size: 15px;
+  width: 170px;
+  padding: 10px 15px;
   margin-top: 10px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
+  background: linear-gradient(to bottom, #FFCC30, #F59346); /* Gradient background */
+  color: #752626; /* Text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 
   &:hover {
-      background-color: #F59346;
+      background: linear-gradient(to bottom, #FFDA79, #FF974B); /* Lighter gradient on hover */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+      transform: translateY(-2px); /* Slight lift on hover */
+  }
+
+  &:active {
+      background: linear-gradient(to bottom, #FFC74D, #F67B36); /* Darker gradient on active */
+      transform: translateY(1px); /* Pressed down effect */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on active */
   }
 }

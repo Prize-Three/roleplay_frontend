@@ -13,7 +13,7 @@ function Home() {
         <Layout>
             <div className={styles.homeWrap}>
                 <div className={styles.buttonWrap}>
-                    <button onClick={() => navigate('/voice-manage')}>🧸 캐릭터 소개(음성 선택)</button>
+                    <button onClick={() => navigate('/voice-manage')}>🧸 캐릭터 소개 (음성 소개)</button>
                     <button onClick={() => navigate('/total-result')}>📝 결과 모음</button>
                 </div>
                 <div className={styles.homeContentWrap}>
