@@ -204,7 +204,7 @@ function Result() {
                 return (
                     <div className={styles.section}>
                         <h2>종합 평가</h2>
-                        <img src='/assets/result/great.png' alt="Great" className={styles.greatImage} />
+                        <img src='/assets/result/resultPage2.png' className={styles.greatImage} />
                         <p className={styles.summary}>{comprehensive_results}</p>
                     </div>
                 );
