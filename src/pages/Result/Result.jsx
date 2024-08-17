@@ -13,7 +13,7 @@ function Result() {
     useEffect(() => {
         const fetchAnalysisData = async () => {
             try {
-                const response = await fetch(`http://localhost:8000/report/report/${numericHistoryId}`);
+                const response = await fetch(`http://localhost:8000/report/analysis/${numericHistoryId}`);
                 if (!response.ok) {
                     throw new Error('데이터를 가져오는데 실패했습니다.');
                 }
