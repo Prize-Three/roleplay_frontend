@@ -117,11 +117,13 @@ function Result() {
                         <h2>전체 스크립트</h2>
                         <div className={styles.scriptContainer}>
                             {scriptData.map((entry, index) => (
-                                <div
-                                    key={index}
-                                    className={`${styles.scriptEntry} ${entry.speaker === 'AI' ? styles.aiBubble : styles.userBubble}`}
-                                >
-                                    <strong>{entry.speaker}:</strong> {entry.message}
+                                <div key={index} className={styles.scriptEntry}>
+                                    <div className={`${entry.speaker === 'AI' ? styles.aiLabel : styles.userLabel}`}>
+                                        {entry.speaker}
+                                    </div>
+                                    <div className={`${entry.speaker === 'AI' ? styles.aiBubble : styles.userBubble}`}>
+                                        {entry.message}
+                                    </div>
                                 </div>
                             ))}
                         </div>

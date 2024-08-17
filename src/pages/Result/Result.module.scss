@@ -409,25 +409,47 @@
 }
 
 .scriptEntry {
-  max-width: 60%;
+  // max-width: 60%;
   padding: 10px;
   border-radius: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
   position: relative;
   word-wrap: break-word;
+  flex-direction: column;
+  display: flex;
+}
+
+.userLabel {
+  align-self: flex-end; /* Align user label to the right */
+  font-weight: bold;
+  color: #006064; /* Darker text color for user */
+  margin-bottom: 5px; /* Space between label and bubble */
+}
+
+.aiLabel {
+  align-self: flex-start; /* Align AI label to the left */
+  font-weight: bold;
+  color: #f57f17; /* Darker text color for AI */
+  margin-bottom: 5px; /* Space between label and bubble */
 }
 
 .userBubble {
   align-self: flex-end; /* Align user messages to the right */
   background-color: #e0f7fa; /* Light blue for user messages */
   color: #006064; /* Darker text color for contrast */
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .aiBubble {
   align-self: flex-start; /* Align AI messages to the left */
   background-color: #fff9c4; /* Light yellow for AI messages */
   color: #f57f17; /* Darker text color for contrast */
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 // 우측 기본 정보 스타일
