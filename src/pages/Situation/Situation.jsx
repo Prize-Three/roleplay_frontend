@@ -24,7 +24,7 @@ function Situation() {
         '승무원 놀이': ['승객', '승무원'],
     };
 
-    const voiceOptions = ['여자 어린이 아고미', '남자 어린이 아고미', '여자 아고미', '남자 아고미'];
+    const voiceOptions = ['미고미', '보고미', '정고미', '유고미'];
 
     const handleRolePlaySelect = (gameType) => {
         if (gameType === selectedGameType) {
