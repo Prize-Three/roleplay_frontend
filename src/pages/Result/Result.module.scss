@@ -399,27 +399,33 @@
 //   }
 // }
 
-.infoItem {
-  background-color: #ffffff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.infoRow {
+.scriptContainer {
   display: flex;
-  justify-content: space-between;
-  padding: 5px 0;
-  border-bottom: 1px solid #eee;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  // max-height: 400px; /* Adjust as needed */
+  // overflow-y: auto;
 }
 
-.label {
-  width: 120px; /* Consistent width for labels */
-  font-weight: bold;
-  color: #333;
+.scriptEntry {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  position: relative;
+  word-wrap: break-word;
 }
 
-.rightInfo span {
-  color: #555;
+.userBubble {
+  align-self: flex-end; /* Align user messages to the right */
+  background-color: #e0f7fa; /* Light blue for user messages */
+  color: #006064; /* Darker text color for contrast */
+}
+
+.aiBubble {
+  align-self: flex-start; /* Align AI messages to the left */
+  background-color: #fff9c4; /* Light yellow for AI messages */
+  color: #f57f17; /* Darker text color for contrast */
 }

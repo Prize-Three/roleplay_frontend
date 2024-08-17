@@ -116,9 +116,11 @@ function Result() {
                     <div className={styles.section}>
                         <h2>전체 스크립트</h2>
                         <div className={styles.scriptContainer}>
-                            {console.log(scriptData)} {/* Log script data */}
                             {scriptData.map((entry, index) => (
-                                <div key={index} className={styles.scriptEntry}>
+                                <div
+                                    key={index}
+                                    className={`${styles.scriptEntry} ${entry.speaker === 'AI' ? styles.aiBubble : styles.userBubble}`}
+                                >
                                     <strong>{entry.speaker}:</strong> {entry.message}
                                 </div>
                             ))}
