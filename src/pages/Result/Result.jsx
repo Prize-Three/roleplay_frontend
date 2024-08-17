@@ -281,8 +281,8 @@ function Result() {
                     />
                 </svg>
                 <div className={styles.chartLabels}>
-                    <div className={styles.childLabel} style={{ color: '#297EFF' }}>사용자: {childPercentage.toFixed(1)}%</div>
                     <div className={styles.aiLabel} style={{ color: '#F55A00' }}>AI: {aiPercentage.toFixed(1)}%</div>
+                    <div className={styles.childLabel} style={{ color: '#297EFF' }}>사용자: {childPercentage.toFixed(1)}%</div>
                 </div>
             </div>
         );
