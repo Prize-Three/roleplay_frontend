@@ -73,6 +73,15 @@
   margin-bottom: 10px;
 }
 
+.headerRow div, .historyItem div {
+  flex: 1;
+  text-align: center;
+}
+
+.headerRow div:first-child, .historyItem div:first-child {
+  flex: 0.5 1; /* Adjust the width for the number column */
+}
+
 .historyItemDiv {
   overflow-y: auto;
   height: calc(100% - 60px);

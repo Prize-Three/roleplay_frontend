@@ -33,18 +33,20 @@ function TotalResult() {
 
                 <div className={styles.totalResultBody}>
                     <div className={styles.headerRow}>
+                        <div>번호</div> {/* Add a header for the sequence number */}
                         <div>놀이 종류</div>
                         <div>날짜</div>
                         <div>진행시간</div>
                         <div>음성</div>
                     </div>
                     <div className={styles.historyItemDiv}>
-                        {historyList.map((history) => (
+                        {historyList.map((history, index) => (
                             <div 
                                 key={history.history_id} 
                                 className={styles.historyItem}
                                 onClick={() => navigate(`/result/${history.history_id}`)}
                             >
+                                <div>{index + 1}</div> {/* Display the sequential number */}
                                 <div>{history.situation}</div>
                                 <div>{history.date}</div>
                                 <div>{history.duration}</div>
