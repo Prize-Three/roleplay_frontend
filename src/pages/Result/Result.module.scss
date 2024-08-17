@@ -82,6 +82,17 @@
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
+
+  &.active {
+    background-color: rgba(255, 255, 255, 0.3); /* Active tab background color */
+    color: white; /* Active tab text color */
+    font-weight: bold;
+    /* 글씨체에 테두리 효과 */
+    text-shadow: 1px 1px 0 #000000, /* 아래쪽과 오른쪽에 검은색 그림자 */
+                 -1px -1px 0 #000000, /* 위쪽과 왼쪽에 검은색 그림자 */
+                 1px -1px 0 #000000, /* 위쪽과 오른쪽에 검은색 그림자 */
+                 -1px 1px 0 #000000; /* 아래쪽과 왼쪽에 검은색 그림자 */
+  }
 }
 
 .rightPanel {

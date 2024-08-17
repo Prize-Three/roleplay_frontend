@@ -244,12 +244,42 @@ function Result() {
                 <div className={styles.body}>
                     <div className={styles.leftPanel}>
                         <div className={styles.tabMenu}>
-                            <button onClick={() => setActiveTab('basicInfo')}>기본 정보</button>
-                            <button onClick={() => setActiveTab('summary')}>역할놀이 대화 내용 요약</button>
-                            <button onClick={() => setActiveTab('language')}>언어 발달 분석</button>
-                            <button onClick={() => setActiveTab('emotion')}>감정 발달 분석</button>
-                            <button onClick={() => setActiveTab('interaction')}>상호작용 분석</button>
-                            <button onClick={() => setActiveTab('evaluation')}>종합 평가</button>
+                            <button
+                                className={activeTab === 'basicInfo' ? styles.active : ''}
+                                onClick={() => setActiveTab('basicInfo')}
+                            >
+                                기본 정보
+                            </button>
+                            <button
+                                className={activeTab === 'summary' ? styles.active : ''}
+                                onClick={() => setActiveTab('summary')}
+                            >
+                                역할놀이 대화 내용 요약
+                            </button>
+                            <button
+                                className={activeTab === 'language' ? styles.active : ''}
+                                onClick={() => setActiveTab('language')}
+                            >
+                                언어 발달 분석
+                            </button>
+                            <button
+                                className={activeTab === 'emotion' ? styles.active : ''}
+                                onClick={() => setActiveTab('emotion')}
+                            >
+                                감정 발달 분석
+                            </button>
+                            <button
+                                className={activeTab === 'interaction' ? styles.active : ''}
+                                onClick={() => setActiveTab('interaction')}
+                            >
+                                상호작용 분석
+                            </button>
+                            <button
+                                className={activeTab === 'evaluation' ? styles.active : ''}
+                                onClick={() => setActiveTab('evaluation')}
+                            >
+                                종합 평가
+                            </button>
                         </div>
                     </div>
                     <div className={styles.rightPanel}>
