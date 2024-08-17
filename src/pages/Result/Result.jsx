@@ -13,7 +13,7 @@ function Result() {
     useEffect(() => {
         const fetchAnalysisData = async () => {
             try {
-                const response = await fetch(`http://localhost:8000/report/analysis/${numericHistoryId}`);
+                const response = await fetch(`http://localhost:8000/report/${numericHistoryId}`);
                 if (!response.ok) {
                     throw new Error('데이터를 가져오는데 실패했습니다.');
                 }
@@ -34,7 +34,7 @@ function Result() {
     }
 
     const {
-        history: { type, child_role, ai_role, start_time, end_time },
+        history: { type, child_role, ai_role, start_time, end_time, setting_voice },
         report: { conversation_summary, interaction_summary, comprehensive_results },
         language_development: { vocabulary, sentence_structure: languageSentenceStructure },
         emotional_development: { vocabulary: emotionalVocabulary, sentence_structure: emotionalSentenceStructure }
