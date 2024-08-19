@@ -1,4 +1,5 @@
 // Home.jsx
+// 메인 화면
 
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
@@ -7,7 +8,7 @@ import styles from './Home.module.scss';
 
 function Home() {
     const navigate = useNavigate();
-    let title = 'AI와 함께하는 역할놀이 서비스 - 테스트 페이지';
+    let title = 'AI와 함께하는 역할놀이';
 
     return (
         <Layout>
