@@ -16,6 +16,17 @@
     font-size: 30px;
     color: white;
     cursor: pointer;
+    z-index: 1001;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
 
@@ -24,19 +35,20 @@
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     padding: 20px;
-    z-index: 1000;
+    z-index: 1001;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
     button {
         font-family: 'LaundryGothicBold', sans-serif;
         background: none;
         border: none;
-        color: white;
+        color: #333;
         font-size: 18px;
         cursor: pointer;
         padding: 10px;
@@ -45,7 +57,7 @@
         transition: background-color 0.3s ease;
 
         &:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(0, 0, 0, 0.1);
         }
     }
 }
@@ -61,27 +73,13 @@
 .homeDiv {
     color: white;
     text-align: center;
-    // background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
-    // width: 100%;
-    // height: 50%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 250px;
-
-    h4 {
-        font-family: 'LaundryGothicBold', sans-serif;
-        font-size: 35px;
-        text-shadow: 2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000;
-        margin-bottom: 20px;
-    }
-
-    .agomiImg {
-        width: 70px;
-    }
 }
 
 .startBtn {
