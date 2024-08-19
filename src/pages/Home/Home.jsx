@@ -22,8 +22,9 @@ function Home() {
                     <>
                         <div className={styles.overlay} onClick={toggleMenu}></div>
                         <div className={styles.menu}>
-                            <button onClick={() => navigate('/voice-manage')}>🧸 캐릭터 소개 (음성 소개)</button>
-                            <button onClick={() => navigate('/total-result')}>📝 결과 모음</button>
+                            <h3 className={styles.menuTitle}>사용자 메뉴</h3>
+                            <button className={styles.menuButton} onClick={() => navigate('/voice-manage')}>캐릭터 소개 (음성 소개)</button>
+                            <button className={styles.menuButton} onClick={() => navigate('/total-result')}>결과 모음</button>
                         </div>
                     </>
                 )}
