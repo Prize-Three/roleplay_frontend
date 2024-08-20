@@ -44,11 +44,11 @@ function Home() {
                             </button>
                         </div>
                         <div className={styles.rightColumn}>
-                            <button className={styles.menuButton} onClick={() => navigate('/voice-manage')}>
-                                {renderButtonContent('캐릭터 소개 (음성 소개)', styles.menuTextOutline)}
+                            <button className={styles.menuBtn} onClick={() => navigate('/voice-manage')}>
+                                {renderButtonContent('캐릭터 및 음성 소개', styles.menuTextOutline)}
                             </button>
-                            <button className={styles.menuButton} onClick={() => navigate('/total-result')}>
-                                {renderButtonContent('결과 모음', styles.menuTextOutline)}
+                            <button className={styles.menuBtn} onClick={() => navigate('/total-result')}>
+                                {renderButtonContent('결과 분석 레포트', styles.menuTextOutline)}
                             </button>
                         </div>
                     </div>

@@ -86,11 +86,11 @@
     gap: 10px;
 }
 
-.menuButton, .startBtn {
+.menuBtn, .startBtn {
     border: 1px solid #000000;
     font-family: 'LaundryGothicBold', sans-serif;
     background: linear-gradient(to top, #F59346, #FFCC30); /* 위쪽으로 그라데이션 방향 변경 */
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
     padding: 20px;
     text-align: center;
@@ -112,7 +112,7 @@
     );
 }
 
-.menuButton {
+.menuBtn {
     height: 155px;
     border-radius: 25px;
     background: linear-gradient(
