@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import Home from './pages/Home/Home';
+import MainHome from './pages/MainHome/MainHome';
 import Situation from './pages/Situation/Situation';
 import Chat from './pages/Chat/Chat';
 import ChooseRole from './pages/ChooseRole/ChooseRole';
@@ -12,7 +14,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<MainHome />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/situation" element={<Situation />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/choose-role" element={<ChooseRole />} />
