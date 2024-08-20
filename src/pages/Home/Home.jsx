@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.scss';
 
 function Home() {
     const navigate = useNavigate();
-    const [menuOpen, setMenuOpen] = useState(false);
-    let title = 'AI와 함께하는 역할놀이';
-
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
 
     return (
         <Layout>
-            <div className={styles.homeWrap}>
-                <div className={styles.hamburgerMenu} onClick={toggleMenu}>
-                    ☰
+            <div className={styles.homeContainerWrap}>
+                <div className={styles.header}>
+                    <h1>사용자 메뉴</h1>
+                    <button onClick={() => navigate('/')} className={styles.exitButton}>이전으로</button>
                 </div>
-                {menuOpen && (
-                    <>
-                        <div className={styles.overlay} onClick={toggleMenu}></div>
-                        <div className={styles.menu}>
-                            <h3 className={styles.menuTitle}>사용자 메뉴</h3>
-                            <button className={styles.menuButton} onClick={() => navigate('/voice-manage')}>캐릭터 소개 (음성 소개)</button>
-                            <button className={styles.menuButton} onClick={() => navigate('/total-result')}>결과 모음</button>
+                <div className={styles.contentWrap}>
+                    <div className={styles.buttonContainer}>
+                        <div className={styles.leftColumn}>
+                            <button className={styles.startBtn} onClick={() => navigate('/situation')}>
+                                <span className={styles.textOutline}>역할놀이 하러가기</span>
+                                <span className={styles.textMain}>역할놀이 하러가기</span>
+                            </button>
                         </div>
-                    </>
-                )}
-                <div className={styles.homeContentWrap}>
-                    <div className={styles.homeDiv}>
-                        <button className={styles.startBtn} onClick={() => navigate('/situation')}>시작하기</button>
+                        <div className={styles.rightColumn}>
+                            <button className={styles.menuButton} onClick={() => navigate('/voice-manage')}>
+                                <span className={styles.textOutline}>캐릭터 소개 (음성 소개)</span>
+                                <span className={styles.textMain}>캐릭터 소개 (음성 소개)</span>
+                            </button>
+                            <button className={styles.menuButton} onClick={() => navigate('/total-result')}>
+                                <span className={styles.textOutline}>결과 모음</span>
+                                <span className={styles.textMain}>결과 모음</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
