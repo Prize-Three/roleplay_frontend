@@ -87,22 +87,22 @@
 }
 
 .menuButton, .startBtn {
-    border: 2px solid #F59346;
+    border: 1px solid #000000;
     font-family: 'LaundryGothicBold', sans-serif;
-    background: linear-gradient(to bottom right, #FFCC30, #F59346);
+    background: linear-gradient(to top, #F59346, #FFCC30); /* 위쪽으로 그라데이션 방향 변경 */
     font-size: 15px;
     cursor: pointer;
     padding: 20px;
     text-align: center;
     border-radius: 10px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), inset 0 -2px 0 rgba(0, 0, 0, 0.2); /* 외부 및 내부 그림자 추가 */
     width: 100%;
     position: relative;
+
 }
 
 .startBtn {
-
     border-radius: 30px;
     height: 320px;
     background: linear-gradient(
@@ -127,13 +127,19 @@
     height: 100%;
 }
 
-.textOutline {
-    fill: none; /* 내부 색상 없앰 */
-    stroke: black; /* 테두리 색상 */
-    stroke-width: 6px; /* 테두리 두께 */
+.startTextOutline {
+    fill: none;
+    stroke: #C65300; /* startBtn의 테두리 색상 */
+    stroke-width: 6px;
+}
+
+.menuTextOutline {
+    fill: none;
+    stroke: #0E2B00; /* menuButton의 테두리 색상 */
+    stroke-width: 6px;
 }
 
 .textMain {
-    fill: white; /* 본문 텍스트 색상 */
+    fill: white;
     font-family: 'LaundryGothicBold', sans-serif;
 }

@@ -5,15 +5,15 @@ import styles from './Home.module.scss';
 
 function Home() {
     const navigate = useNavigate();
-    const renderButtonContent = (text) => (
+    const renderButtonContent = (text, outlineClass) => (
         <svg className={styles.svgText} viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
             <text 
                 x="50%" 
                 y="50%" 
                 textAnchor="middle" 
                 dominantBaseline="middle" 
-                className={styles.textOutline}
-                strokeLinejoin="round" /* 곡선 연결부를 둥글게 */
+                className={outlineClass}
+                strokeLinejoin="round"
             >
                 {text}
             </text>
@@ -28,9 +28,6 @@ function Home() {
             </text>
         </svg>
     );
-    
-    
-    
 
     return (
         <Layout>
@@ -43,15 +40,15 @@ function Home() {
                     <div className={styles.buttonContainer}>
                         <div className={styles.leftColumn}>
                             <button className={styles.startBtn} onClick={() => navigate('/situation')}>
-                                {renderButtonContent('역할놀이 하러가기')}
+                                {renderButtonContent('역할놀이 하러가기', styles.startTextOutline)}
                             </button>
                         </div>
                         <div className={styles.rightColumn}>
                             <button className={styles.menuButton} onClick={() => navigate('/voice-manage')}>
-                                {renderButtonContent('캐릭터 소개 (음성 소개)')}
+                                {renderButtonContent('캐릭터 소개 (음성 소개)', styles.menuTextOutline)}
                             </button>
                             <button className={styles.menuButton} onClick={() => navigate('/total-result')}>
-                                {renderButtonContent('결과 모음')}
+                                {renderButtonContent('결과 모음', styles.menuTextOutline)}
                             </button>
                         </div>
                     </div>
