@@ -70,7 +70,7 @@ body {
     font-weight: bold;
     border: none;
     padding: 12px 20px;
-    margin: 10px 0;
+    margin-bottom: 20px;
     font-size: 20px;
     cursor: pointer;
     outline: none;
@@ -218,8 +218,8 @@ body {
 
 
 
-/* leftPanel의 스크롤바 스타일 */
-.leftPanel {
+
+.gameTypeBox {
     overflow-y: auto; /* 스크롤이 필요한 경우에만 스크롤바 표시 */
 
     &::-webkit-scrollbar {
