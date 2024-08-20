@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.scss';
+import Header1 from '../../components/Header1/Header1'; // 공용 헤더 컴포넌트 임포트
 
 function Home() {
     const navigate = useNavigate();
@@ -32,10 +33,7 @@ function Home() {
     return (
         <Layout>
             <div className={styles.homeContainerWrap}>
-                <div className={styles.header}>
-                    <h1>사용자 메뉴</h1>
-                    <button onClick={() => navigate('/')} className={styles.exitButton}>이전으로</button>
-                </div>
+                <Header1 title="사용자 메뉴" onBack={() => navigate('/')} /> 
                 <div className={styles.contentWrap}>
                     <div className={styles.buttonContainer}>
                         <div className={styles.leftColumn}>
