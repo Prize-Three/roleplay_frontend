@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './VoiceManage.module.scss';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
+import Header1 from '../../components/Header1/Header1'; // 공용 헤더 컴포넌트 임포트
 
 function VoiceManage() {
     const navigate = useNavigate();
@@ -64,10 +65,7 @@ function VoiceManage() {
     return (
         <Layout>
             <div className={styles.voiceManageContainer}>
-                <div className={styles.header}>
-                    <h1>🧸 아고미 월드 캐릭터 소개</h1>
-                    <button onClick={() => navigate('/')} className={styles.exitButton}>이전으로</button>
-                </div>
+                <Header1 title="아고미 월드" onBack={() => navigate('/home')} />
                 <div className={styles.characterRow}>
                     {characters.map((character, index) => (
                         <div key={index} className={styles.characterCard}>

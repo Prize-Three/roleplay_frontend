@@ -48,9 +48,13 @@
 }
 
 .characterRow {
+  // background-color: pink;
   display: flex; // Flexbox for horizontal layout
   justify-content: space-around; // Space out the cards evenly
   width: 100%;
+  height: 80%;
+  margin: 95px auto auto auto;
+  align-items: center;
   overflow-x: auto; // Allow horizontal scrolling if needed
 }
 
