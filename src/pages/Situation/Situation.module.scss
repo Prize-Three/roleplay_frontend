@@ -16,30 +16,6 @@ body {
     padding: 20px;
     box-sizing: border-box;
 
-    /* 커스텀 스크롤바 */
-    &::-webkit-scrollbar {
-        width: 6px; /* 스크롤바 너비 */
-    }
-
-    &::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.2); /* 트랙 배경색 */
-        border-radius: 10px; /* 둥근 모서리 */
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.5); /* 스크롤바 색상 */
-        border-radius: 10px; /* 둥근 모서리 */
-        border: 2px solid transparent; /* 스크롤바의 경계 영역 */
-        background-clip: padding-box; /* 패딩 영역 클립 */
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: rgba(0, 0, 0, 0.7); /* 호버시 스크롤바 색상 */
-    }
-
-    &::-webkit-scrollbar-corner {
-        background: transparent; /* 코너 배경색 */
-    }
 }
 
 // .header {
@@ -299,60 +275,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-// .leftPanel {
-//     /* Custom scrollbar styles */
-//     scrollbar-width: thin; // For Firefox
-//     scrollbar-color: #888 #f0f0f0; // Thumb and track color for Firefox
 
-//     /* Webkit browsers (Chrome, Safari) */
-//     &::-webkit-scrollbar {
-//         width: 8px; // Width of the scrollbar
-//     }
-
-//     &::-webkit-scrollbar-track {
-//         background: #f0f0f0; // Background of the scrollbar track
-//     }
-
-//     &::-webkit-scrollbar-thumb {
-//         background-color: #888; // Color of the scrollbar thumb
-//         border-radius: 10px; // Rounded corners for the thumb
-//         border: 2px solid #f0f0f0; // Padding around the thumb
-//     }
-
-//     &::-webkit-scrollbar-thumb:hover {
-//         background-color: #555; // Color when hovering over the thumb
-//     }
-// }
-
-/* 공통 스크롤바 스타일 */
-.situationWrap {
-    /* 기존 스타일 유지 */
-
-    /* 커스텀 스크롤바 */
-    &::-webkit-scrollbar {
-        width: 6px; /* 스크롤바 너비 */
-    }
-
-    &::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.2); /* 트랙 배경색 */
-        border-radius: 10px; /* 둥근 모서리 */
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.5); /* 스크롤바 색상 */
-        border-radius: 10px; /* 둥근 모서리 */
-        border: 1px solid transparent; /* 스크롤바의 경계 영역 */
-        background-clip: padding-box; /* 패딩 영역 클립 */
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: rgba(0, 0, 0, 0.7); /* 호버시 스크롤바 색상 */
-    }
-
-    &::-webkit-scrollbar-corner {
-        background: transparent; /* 코너 배경색 */
-    }
-}
 
 /* leftPanel의 스크롤바 스타일 */
 .leftPanel {
