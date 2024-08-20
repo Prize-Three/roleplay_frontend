@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './TotalResult.module.scss';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
+import Header1 from '../../components/Header1/Header1'; // 공용 헤더 컴포넌트 임포트
 
 function TotalResult() {
     const navigate = useNavigate();
@@ -26,11 +27,7 @@ function TotalResult() {
     return (
         <Layout>
             <div className={styles.totalResultContainer}>
-                <div className={styles.totalResultHead}>
-                    <div className={styles.totalResultHeadTitle}>📝 결과 모음</div>
-                    <button onClick={() => navigate('/')}>이전으로</button>
-                </div>
-
+                <Header1 title="결과 분석 레포트" onBack={() => navigate('/home')} />
                 <div className={styles.totalResultBody}>
                     <div className={styles.headerRow}>
                         <div>번호</div> {/* Add a header for the sequence number */}
