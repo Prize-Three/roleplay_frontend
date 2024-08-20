@@ -18,7 +18,7 @@ body {
 
     /* 커스텀 스크롤바 */
     &::-webkit-scrollbar {
-        width: 12px; /* 스크롤바 너비 */
+        width: 6px; /* 스크롤바 너비 */
     }
 
     &::-webkit-scrollbar-track {
@@ -29,7 +29,7 @@ body {
     &::-webkit-scrollbar-thumb {
         background: rgba(0, 0, 0, 0.5); /* 스크롤바 색상 */
         border-radius: 10px; /* 둥근 모서리 */
-        border: 3px solid transparent; /* 스크롤바의 경계 영역 */
+        border: 2px solid transparent; /* 스크롤바의 경계 영역 */
         background-clip: padding-box; /* 패딩 영역 클립 */
     }
 
@@ -42,55 +42,55 @@ body {
     }
 }
 
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // padding-bottom: 10px;
-    // border-bottom: 3px solid #000000; /* 하단 테두리 */
-}
+// .header {
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     // padding-bottom: 10px;
+//     // border-bottom: 3px solid #000000; /* 하단 테두리 */
+// }
 
-.title {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    width: 340px;
-    text-align: center;
-    height: 63px;
-    background: rgba(0, 0, 0, 0.5); 
-    border-radius: 50px;
-    display: flex;
-    align-items: center; /* 수직 중앙 정렬 */
-    justify-content: center; /* 수평 중앙 정렬 */
-}
+// .title {
+//     font-size: 25px;
+//     font-weight: bold;
+//     color: white;
+//     width: 340px;
+//     text-align: center;
+//     height: 63px;
+//     background: rgba(0, 0, 0, 0.5); 
+//     border-radius: 50px;
+//     display: flex;
+//     align-items: center; /* 수직 중앙 정렬 */
+//     justify-content: center; /* 수평 중앙 정렬 */
+// }
 
-.exitButton {
-    background-color: transparent; /* 진한 주황색 */
-    color: #FFFFFF; /* 흰색 폰트 */
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-size: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: 'LaundryGothicBold', sans-serif;
+// .exitButton {
+//     background-color: transparent; /* 진한 주황색 */
+//     color: #FFFFFF; /* 흰색 폰트 */
+//     border: none;
+//     padding: 8px 16px;
+//     border-radius: 5px;
+//     font-size: 30px;
+//     cursor: pointer;
+//     transition: background-color 0.3s ease;
+//     font-family: 'LaundryGothicBold', sans-serif;
 
-    // &:hover {
-    //     background-color: #FF4500; /* 더 진한 주황색으로 호버 */
-    // }
-    /* 글씨체에 테두리 효과 */
-    text-shadow: 1.5px 1.5px 0 #000000, /* 아래쪽과 오른쪽에 검은색 그림자 */
-                 -1.5px -1.5px 0 #000000, /* 위쪽과 왼쪽에 검은색 그림자 */
-                 1.5px -1.5px 0 #000000, /* 위쪽과 오른쪽에 검은색 그림자 */
-                 -1.5px 1.5px 0 #000000; /* 아래쪽과 왼쪽에 검은색 그림자 */
-}
+//     // &:hover {
+//     //     background-color: #FF4500; /* 더 진한 주황색으로 호버 */
+//     // }
+//     /* 글씨체에 테두리 효과 */
+//     text-shadow: 1.5px 1.5px 0 #000000, /* 아래쪽과 오른쪽에 검은색 그림자 */
+//                  -1.5px -1.5px 0 #000000, /* 위쪽과 왼쪽에 검은색 그림자 */
+//                  1.5px -1.5px 0 #000000, /* 위쪽과 오른쪽에 검은색 그림자 */
+//                  -1.5px 1.5px 0 #000000; /* 아래쪽과 왼쪽에 검은색 그림자 */
+// }
 
 .content {
     display: flex;
     flex-direction: row;
     flex: 1;
-    margin-top: 20px;
+    margin-top: 85px;
     height: calc(100% - 30px); /* 헤더를 제외한 높이 */
     overflow: hidden; /* 자식 요소가 튀어나오는 것을 숨김 */
 }
@@ -100,8 +100,9 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.5); /* 연한 흰색 배경 */
-    border-radius: 10px;
+    border-radius: 20px;
     margin-right: 10px;
+    margin-left: 30px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     height: 100%; /* 부모의 높이에 맞춤 */
@@ -232,10 +233,11 @@ body {
     padding: 5px 20px 5px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    // overflow-y: auto;
+    overflow-y: auto;
     height: 82%;
-    width: 630px;
+    width: 142%;
     // width: 116%;
+    margin-right: 30px;
 
 }
 
@@ -328,7 +330,7 @@ body {
 
     /* 커스텀 스크롤바 */
     &::-webkit-scrollbar {
-        width: 12px; /* 스크롤바 너비 */
+        width: 6px; /* 스크롤바 너비 */
     }
 
     &::-webkit-scrollbar-track {
@@ -339,7 +341,7 @@ body {
     &::-webkit-scrollbar-thumb {
         background: rgba(0, 0, 0, 0.5); /* 스크롤바 색상 */
         border-radius: 10px; /* 둥근 모서리 */
-        border: 3px solid transparent; /* 스크롤바의 경계 영역 */
+        border: 1px solid transparent; /* 스크롤바의 경계 영역 */
         background-clip: padding-box; /* 패딩 영역 클립 */
     }
 
@@ -357,7 +359,7 @@ body {
     overflow-y: auto; /* 스크롤이 필요한 경우에만 스크롤바 표시 */
 
     &::-webkit-scrollbar {
-        width: 20px; /* 스크롤바 너비 */
+        width: 10px; /* 스크롤바 너비 */
     }
 
     &::-webkit-scrollbar-track {
@@ -367,7 +369,7 @@ body {
     }
 
     &::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.4); /* 스크롤바 색상 */
+        background: rgba(0, 0, 0, 0.6); /* 스크롤바 색상 */
         border-radius: 20px; /* 둥근 모서리 */  
     }
 
@@ -375,17 +377,6 @@ body {
         background: rgba(0, 0, 0, 0.6); /* 호버시 스크롤바 색상 */
     }
 }
-
-// .selectionSection {
-//     h3 {
-//         color: white;
-//         /* 글씨체에 테두리 효과 */
-//         text-shadow: 0.5px 0.5px 0 #000000, /* 아래쪽과 오른쪽에 검은색 그림자 */
-//                     -0.5px -0.5px 0 #000000, /* 위쪽과 왼쪽에 검은색 그림자 */
-//                     0.5px -0.5px 0 #000000, /* 위쪽과 오른쪽에 검은색 그림자 */
-//                     -0.5px 0.5px 0 #000000; /* 아래쪽과 왼쪽에 검은색 그림자 */
-//     }
-// }
 
 .selectionSection h3 {
     position: relative; // Ensure the h3 is positioned relative to allow absolute positioning of the ::before element

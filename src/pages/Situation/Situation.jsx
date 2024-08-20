@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import Alert from '../../components/Alert/Alert';
 import styles from './Situation.module.scss';
+import Header1 from '../../components/Header1/Header1'; // 공용 헤더 컴포넌트 임포트
 
 function Situation() {
     const navigate = useNavigate();
@@ -98,11 +99,8 @@ function Situation() {
 
     return (
         <Layout>
+            <Header1 title="놀이 세부 설정" onBack={() => navigate('/home')} />
             <div className={styles.situationWrap}>
-                <div className={styles.header}>
-                    <h1 className={styles.title}> 역할놀이 세부설정 🐻</h1>
-                    <button onClick={handleExit} className={styles.exitButton}>돌아가기</button>
-                </div>
                 <div className={styles.content}>
                     <div className={styles.leftPanel}>
                         <h2 className={styles.subtitle}>놀이를 선택해주세요</h2>
