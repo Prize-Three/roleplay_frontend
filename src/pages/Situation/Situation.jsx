@@ -27,6 +27,30 @@ function Situation() {
 
     const voiceOptions = ['미고미', '보고미', '정고미', '유고미'];
 
+    const renderButtonContent = (text, outlineClass) => (
+        <svg className={styles.svgText} viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <text 
+                x="50%" 
+                y="50%" 
+                textAnchor="middle" 
+                dominantBaseline="middle" 
+                className={outlineClass}
+                strokeLinejoin="round" /* 곡선 연결부를 둥글게 */
+            >
+                {text}
+            </text>
+            <text 
+                x="50%" 
+                y="50%" 
+                textAnchor="middle" 
+                dominantBaseline="middle" 
+                className={styles.textMain}
+            >
+                {text}
+            </text>
+        </svg>
+    );
+
     const handleRolePlaySelect = (gameType) => {
         if (gameType === selectedGameType) {
             setSelectedGameType(null);
@@ -45,7 +69,6 @@ function Situation() {
         }
     };
 
-    
     const handleNextStep = async () => {
         if (selectedGameType && selectedUserRole && selectedAIRole && selectedAIVoice) {
             const voiceIndex = voiceOptions.indexOf(selectedAIVoice) + 1; // 인덱스는 1부터 시작
@@ -75,7 +98,6 @@ function Situation() {
                 // 응답에서 history_id를 받아와 URL에 추가
                 const queryParams = new URLSearchParams({
                     ...dataToSend,
-                    // history_id: 14,
                     history_id: responseData.history_id
                 }).toString();
 
@@ -103,7 +125,9 @@ function Situation() {
             <div className={styles.situationWrap}>
                 <div className={styles.content}>
                     <div className={styles.leftPanel}>
-                        <h2 className={styles.subtitle}>놀이를 선택해주세요</h2>
+                        <h2 className={styles.subtitle}>
+                            {renderButtonContent('놀이를 선택해주세요', styles.subtitleText)}
+                        </h2>
                         <div className={styles.gameTypeBox}>
                             {Object.keys(roleOptions).map((gameType) => (
                                 <button
@@ -118,57 +142,56 @@ function Situation() {
                     </div>
                     {rightPanelState && selectedGameType && (
                         <div>
-                        <div className={styles.rightPanel}>
-                            <div className={styles.selectionSection}>
-                                <h3>
-                                    사용자 역할
-                                </h3>
-                                <div className={styles.roleButtonGroup}>
-                                    {roleOptions[selectedGameType].map((role) => (
-                                        <button
-                                            key={role}
-                                            onClick={() => handleRoleSelection(role, 'user')}
-                                            className={`${styles.roleButton} ${role === selectedUserRole ? styles.selected : ''}`}
-                                        >
-                                            {role}
-                                        </button>
-                                    ))}
+                            <div className={styles.rightPanel}>
+                                <div className={styles.selectionSection}>
+                                    <h3>사용자 역할</h3>
+                                    <div className={styles.roleButtonGroup}>
+                                        {roleOptions[selectedGameType].map((role) => (
+                                            <button
+                                                key={role}
+                                                onClick={() => handleRoleSelection(role, 'user')}
+                                                className={`${styles.roleButton} ${role === selectedUserRole ? styles.selected : ''}`}
+                                            >
+                                                {role}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className={styles.selectionSection}>
+                                    <h3>AI 역할</h3>
+                                    <div className={styles.roleButtonGroup}>
+                                        {roleOptions[selectedGameType].map((role) => (
+                                            <button
+                                                key={role}
+                                                onClick={() => handleRoleSelection(role, 'ai')}
+                                                className={`${styles.roleButton} ${role === selectedAIRole ? styles.selected : ''}`}
+                                            >
+                                                {role}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className={styles.selectionSection}>
+                                    <h3>AI 음성</h3>
+                                    <div className={styles.voiceButtonGroup}>
+                                        {voiceOptions.map((voice) => (
+                                            <button
+                                                key={voice}
+                                                onClick={() => setSelectedAIVoice(voice)}
+                                                className={`${styles.voiceButton} ${voice === selectedAIVoice ? styles.selected : ''}`}
+                                            >
+                                                {voice}
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                            <div className={styles.selectionSection}>
-                                <h3>AI 역할</h3>
-                                <div className={styles.roleButtonGroup}>
-                                    {roleOptions[selectedGameType].map((role) => (
-                                        <button
-                                            key={role}
-                                            onClick={() => handleRoleSelection(role, 'ai')}
-                                            className={`${styles.roleButton} ${role === selectedAIRole ? styles.selected : ''}`}
-                                        >
-                                            {role}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className={styles.selectionSection}>
-                                <h3>AI 음성</h3>
-                                <div className={styles.voiceButtonGroup}>
-                                    {voiceOptions.map((voice) => (
-                                        <button
-                                            key={voice}
-                                            onClick={() => setSelectedAIVoice(voice)}
-                                            className={`${styles.voiceButton} ${voice === selectedAIVoice ? styles.selected : ''}`}
-                                        >
-                                            {voice}
-                                        </button>
-                                    ))}
-                                </div>
+                            <div className={styles.nextButtonContainer}>
+                                <button onClick={handleNextStep} className={styles.nextButton}>
+                                    {renderButtonContent('역할놀이 시작', styles.nextStepText)}
+                                </button>
                             </div>
                         </div>
-                        <div className={styles.nextButtonContainer}>
-                            {/* 다음 단계 ➪ */}
-                            <button onClick={handleNextStep} className={styles.nextButton}>역할놀이 시작</button>
-                        </div>
-                    </div>
                     )}
                 </div>
                 {showAlert && (
