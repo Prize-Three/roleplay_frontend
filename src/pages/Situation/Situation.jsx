@@ -58,6 +58,11 @@ function Situation() {
         } else {
             setSelectedGameType(gameType);
             setRightPanelState(true);
+
+            // 새로운 놀이 type선택하면, 세부 설정 초기화
+            setSelectedAIRole(null);
+            setSelectedAIVoice(null);
+            setSelectedUserRole(null);
         }
     };
 
