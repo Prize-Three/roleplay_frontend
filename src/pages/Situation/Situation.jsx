@@ -131,7 +131,7 @@ function Situation() {
                 <div className={styles.content}>
                     <div className={styles.leftPanel}>
                         <h2 className={styles.subtitle}>
-                            {renderButtonContent('놀이를 선택해주세요', styles.subtitleText)}
+                            {renderButtonContent('놀이를 선택해주세요.', styles.subtitleText)}
                         </h2>
                         <div className={styles.gameTypeBox}>
                             {Object.keys(roleOptions).map((gameType) => (
