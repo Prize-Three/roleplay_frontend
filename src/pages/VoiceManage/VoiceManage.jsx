@@ -13,6 +13,7 @@ const renderButtonContent = (text, outlineClass) => (
             textAnchor="middle" 
             dominantBaseline="middle" 
             className={outlineClass}
+            strokeLinejoin="round"
         >
             {text}
         </text>
@@ -98,7 +99,7 @@ function VoiceManage() {
                             <div className={styles.features}>
                                 {character.features.join(' ')}
                                 <button onClick={() => playVoice(character.voice, character.text)} className={styles.voiceButton}>
-                                    ▶️ 소개 듣기 
+                                    ▶ 소개 듣기 
                                 </button>
                             </div>
                         </div>
