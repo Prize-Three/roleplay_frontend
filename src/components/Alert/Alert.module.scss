@@ -14,24 +14,45 @@
 
 .alert {
     background-image: url('../../../public/assets/alert/alertBgImg.png');
-    background-size: 100% 100%; /* 이미지가 요소를 덮도록 설정 */
-    background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
-    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
-    padding: 20px;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 20px;
     text-align: center;
-    width: 390px;
-    height: 220px;
+    width: 420px;
+    height: 240px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.alert p {
-    // 임시 배치임 나중에 수정해야함
-    margin: 127px 0 20px;
-    // 스타일
-    color: #3C5BAC;
-    font-weight: bold;
-    font-size: 20px;
+.alertPositionBox {
+    // background-color: pink;
+    width: 100%;
+    margin-top: 85px;
+}
+
+.svgText {
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.textOutline {
+    fill: none;
+    stroke: #3C5BAC;
+    stroke-width: 7px;
+    font-size: 25px;
+    font-family: 'LaundryGothicBold', sans-serif;
+}
+
+.textMain {
+    fill: white;
+    font-size: 25px;
+    font-family: 'LaundryGothicBold', sans-serif;
 }
 
 .buttonContainer {
@@ -43,18 +64,20 @@
         font-family: 'LaundryGothicBold', sans-serif;
         width: 154px;
         height: 36px;
-        border-radius: 15px;
+        border-radius: 20px;
         font-weight: bold;
         font-size: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.3); /* Add shadow for 3D effect */
     }
 }
 
 .confirmButton {
-    background: linear-gradient(to bottom, #EFE9DA, #E2DFD4); /* 호버시 배경색 밝은 주황색 */
+    background: linear-gradient(to bottom, #EFE9DA, #E2DFD4);
     color: black;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    
 }
 
 .confirmButton:hover {
@@ -62,7 +85,7 @@
 }
 
 .cancelButton {
-    background: linear-gradient(to bottom, #FF6D6D, #FF5252); /* 호버시 배경색 밝은 주황색 */
+    background: linear-gradient(to bottom, #FF6D6D, #FF5252);
     color: white;
     border: none;
     padding: 10px 20px;
