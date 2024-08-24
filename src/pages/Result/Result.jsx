@@ -114,7 +114,7 @@ function Result() {
             case 'fullScript':
                 return (
                     <div className={styles.section}>
-                        <h2>전체 스크립트</h2>
+                        <h2>전체 대화 내용</h2>
                         <div className={styles.scriptContainer}>
                             {scriptData.map((entry, index) => (
                                 <div key={index} className={styles.scriptEntry}>
@@ -293,7 +293,7 @@ function Result() {
             <div className={styles.resultContainer}>
                 <div className={styles.header}>
                     <h1 className={styles.title}>놀이 결과</h1>
-                    <button className={styles.backButton} onClick={() => navigate('/')}>돌아가기</button>
+                    <button className={styles.backButton} onClick={() => navigate('/total-result')}>돌아가기</button>
                 </div>
                 <div className={styles.body}>
                     <div className={styles.leftPanel}>
@@ -302,43 +302,43 @@ function Result() {
                                 className={activeTab === 'basicInfo' ? styles.active : ''}
                                 onClick={() => setActiveTab('basicInfo')}
                             >
-                                기본 정보
+                                - 기본 정보
                             </button>
                             <button
                                 className={activeTab === 'fullScript' ? styles.active : ''}
                                 onClick={() => setActiveTab('fullScript')}
                             >
-                                전체 스크립트
+                                - 전체 대화 내용
                             </button>
                             <button
                                 className={activeTab === 'summary' ? styles.active : ''}
                                 onClick={() => setActiveTab('summary')}
                             >
-                                역할놀이 대화 내용 요약
+                            &nbsp;&nbsp;&nbsp;&nbsp;- 요약
                             </button>
                             <button
                                 className={activeTab === 'language' ? styles.active : ''}
                                 onClick={() => setActiveTab('language')}
                             >
-                                언어 발달 분석
+                                - 언어 발달 분석
                             </button>
                             <button
                                 className={activeTab === 'emotion' ? styles.active : ''}
                                 onClick={() => setActiveTab('emotion')}
                             >
-                                감정 발달 분석
+                                - 감정 발달 분석
                             </button>
                             <button
                                 className={activeTab === 'interaction' ? styles.active : ''}
                                 onClick={() => setActiveTab('interaction')}
                             >
-                                상호작용 분석
+                                - 상호작용 분석
                             </button>
                             <button
                                 className={activeTab === 'evaluation' ? styles.active : ''}
                                 onClick={() => setActiveTab('evaluation')}
                             >
-                                종합 평가
+                                - 종합 평가
                             </button>
                         </div>
                     </div>
