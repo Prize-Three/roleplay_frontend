@@ -1,3 +1,143 @@
+// .totalResultContainer {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   width: 100%;
+//   height: 100%;
+//   padding: 20px;
+//   background-image: url('../../../public/assets/result/allScriptBg.png');
+//   background-size: cover;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   box-sizing: border-box;
+// }
+
+// .totalResultHead {
+//   width: 100%;
+//   padding: 10px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   margin-bottom: 20px;
+//   background: rgba(0, 0, 0, 0.8);
+//   border-radius: 10px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+// }
+
+// .totalResultHeadTitle {
+//   font-size: 28px;
+//   color: white;
+//   font-family: 'LaundryGothicBold', sans-serif;
+// }
+
+// .totalResultHead button {
+//   font-family: 'LaundryGothicBold', sans-serif;
+//   font-size: 24px;
+//   background-color: transparent;
+//   border: 2px solid white;
+//   cursor: pointer;
+//   color: white;
+//   padding: 5px 15px;
+//   border-radius: 5px;
+//   transition: background-color 0.3s, border-color 0.3s;
+
+//   &:hover {
+//     background-color: white;
+//     color: black;
+//     border-color: black;
+//   }
+// }
+
+// .totalResultBody {
+//   background-color: rgba(255, 255, 255, 0.85);
+//   width: 100%;
+//   height: calc(100% - 80px);
+//   border-radius: 10px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+//   padding: 20px;
+//   box-sizing: border-box;
+//   overflow: hidden;
+//   margin-top: 80px;
+// }
+
+// .headerRow {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 15px;
+//   background-color: #f0f0f0;
+//   color: #0062F5;
+//   font-weight: bold;
+//   font-size: 20px;
+//   border-radius: 10px;
+//   border: 2px solid #0062F5;
+//   // background-color: transparent;
+//   margin-bottom: 10px;
+// }
+
+// .headerRow div, .historyItem div {
+//   flex: 1;
+//   text-align: center;
+// }
+
+// .headerRow div:first-child, .historyItem div:first-child {
+//   flex: 0.5 1; /* Adjust the width for the number column */
+// }
+
+// .historyItemDiv {
+//   overflow-y: auto;
+//   height: calc(100% - 60px);
+//   width: 100%;
+//   box-sizing: border-box;
+//   padding-top: 2px;
+// }
+
+// .historyItemDiv::-webkit-scrollbar {
+//   width: 8px;
+// }
+
+// .historyItemDiv::-webkit-scrollbar-track {
+//   background: #f1f1f1;
+//   border-radius: 10px;
+// }
+
+// .historyItemDiv::-webkit-scrollbar-thumb {
+//   background: #888;
+//   border-radius: 10px;
+// }
+
+// .historyItemDiv::-webkit-scrollbar-thumb:hover {
+//   background: #555;
+// }
+
+// .historyItem {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 15px;
+//   margin-bottom: 10px;
+//   background-color: rgba(255, 255, 255, 0.9);
+//   border-radius: 10px;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//   transition: background-color 0.3s ease, transform 0.3s ease;
+//   cursor: pointer;
+//   border: 1px solid #B2D5FF; // Consistent border for all items
+
+//   &:hover {
+//     background-color: #E3F0FF;
+//     transform: translateY(-2px);
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+//     border-color: #6793F3; // Change border color on hover
+//   }
+// }
+
+// .headerRow div, .historyItem div {
+//   flex: 1;
+//   text-align: center;
+// }
+
+//////////////////////-------바꾼 스타일-------////////////////////
+
 .totalResultContainer {
   display: flex;
   flex-direction: column;
@@ -10,127 +150,138 @@
   background-position: center;
   background-repeat: no-repeat;
   box-sizing: border-box;
-}
-
-.totalResultHead {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.totalResultHeadTitle {
-  font-size: 28px;
-  color: white;
-  font-family: 'LaundryGothicBold', sans-serif;
-}
-
-.totalResultHead button {
-  font-family: 'LaundryGothicBold', sans-serif;
-  font-size: 24px;
-  background-color: transparent;
-  border: 2px solid white;
-  cursor: pointer;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s, border-color 0.3s;
-
-  &:hover {
-    background-color: white;
-    color: black;
-    border-color: black;
-  }
 }
 
 .totalResultBody {
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 100%;
-  height: calc(100% - 80px);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 95%;
+  height: calc(100% - 100px);
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  padding: 30px;
   overflow: hidden;
   margin-top: 80px;
+  display: flex;
+  flex-direction: column;
 }
 
 .headerRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  background-color: #f0f0f0;
-  color: #0062F5;
+  padding: 20px 30px;
+  background: linear-gradient(135deg, #995fee, #7a6eee, #657cee, #6c77ed, #a45ce2, #b859bd, #c657a5);
+  color: white;
   font-weight: bold;
-  font-size: 20px;
-  border-radius: 10px;
-  border: 2px solid #0062F5;
-  margin-bottom: 10px;
-}
+  font-size: 18px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 20px rgba(74, 144, 226, 0.2);
+  position: relative;
+  overflow: hidden;
 
-.headerRow div, .historyItem div {
-  flex: 1;
-  text-align: center;
-}
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    // background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 80%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 80%);
+    transform: rotate(30deg);
+  }
 
-.headerRow div:first-child, .historyItem div:first-child {
-  flex: 0.5 1; /* Adjust the width for the number column */
+  div {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    &:first-child { flex: 0.5; }
+  }
 }
 
 .historyItemDiv {
   overflow-y: auto;
-  height: calc(100% - 60px);
+  flex-grow: 1;
   width: 100%;
-  box-sizing: border-box;
-  padding-top: 2px;
-}
+  padding: 10px 5px;
 
-.historyItemDiv::-webkit-scrollbar {
-  width: 8px;
-}
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
 
-.historyItemDiv::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
 
-.historyItemDiv::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
+  &::-webkit-scrollbar-thumb {
+    background: #4A90E2;
+    border-radius: 10px;
+    transition: background 0.3s ease;
 
-.historyItemDiv::-webkit-scrollbar-thumb:hover {
-  background: #555;
+    &:hover {
+      background: #3A7BC8;
+    }
+  }
 }
 
 .historyItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  margin-bottom: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 20px 25px;
+  margin-bottom: 15px;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
   cursor: pointer;
-  border: 1px solid #B2D5FF; // Consistent border for all items
+  border-left: 5px solid #7a6eee;
 
   &:hover {
-    background-color: #E3F0FF;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-color: #6793F3; // Change border color on hover
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(74, 144, 226, 0.15);
+    background-color: #F8FBFF;
   }
-}
 
-.headerRow div, .historyItem div {
-  flex: 1;
-  text-align: center;
+  div {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease;
+
+    &:first-child {
+      flex: 0.5;
+      font-weight: bold;
+      color: #8d85f7; /*ppt 색상*/
+
+    }
+
+    &:nth-child(2) {
+      font-weight: bold;
+      color: #555; 
+    }
+
+    &:nth-child(3) { 
+      font-style: italic;
+      color: #8d85f7; /*ppt 색상*/
+
+    }
+    &:nth-child(4) { 
+      color: #555; 
+    }
+    &:nth-child(5) { 
+      // font-style: italic;
+      color: #555; 
+    }
+  }
+
+  &:hover div {
+    color: #8d85f7; /*ppt 색상*/
+  }
 }
