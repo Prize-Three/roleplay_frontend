@@ -1,0 +1,44 @@
+.titleContainer {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 16px;
+    // background-color: yellow;
+}
+
+.numberBox {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    background: linear-gradient(to bottom right, #76a4fc, #e784f6);
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+.number {
+    position: absolute;
+    bottom: -13px;
+    right: 5px;
+    font-size: 38px;
+    font-weight: bold;
+    color: white;
+}
+
+.titleTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; // 추가: 내부 요소를 하단에 정렬
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #7c89b0;
+    margin-bottom: 4px;
+}
+
+.title {
+    font-size: 36px;
+    // background-color: pink;
+    display: inline;
+    line-height: 0.65; // 추가: 줄 높이를 텍스트 높이와 동일하게 설정
+    //padding-bottom: 2px; // 추가: 하단에 약간의 여백 추가 (필요에 따라 조정)
+}
