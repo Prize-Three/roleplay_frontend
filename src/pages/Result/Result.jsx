@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './Result.module.scss';
 import Layout from '../../components/Layout/Layout';
+import ResultTabTitle from '../../components/ResultTabTitle/ResultTabTitle';
 
 function Result() {
     const navigate = useNavigate();
@@ -84,7 +85,8 @@ function Result() {
 
             return (
                 <div className={styles.section}>
-                    <h2 className={styles.title}>기본 정보</h2>
+                    {/* <h2 className={styles.title}>기본 정보</h2> */}
+                    <ResultTabTitle title="" subTitle="기본 정보" number="01"/>
                     <div className={styles.infoSplit}>
                         <div className={styles.leftInfo}>
                             <img src={imageSrc} alt="Role Play Type" className={styles.roleImage} />
@@ -114,7 +116,14 @@ function Result() {
             case 'fullScript':
                 return (
                     <div className={styles.section}>
-                        <h2>전체 대화 내용</h2>
+                        {/* <div className={styles.titleContainer}>
+                            <div className={styles.numberBox}>01</div>
+                            <div className={styles.titleTextContainer}>
+                                <h2 className={styles.subtitle}>대화 내용</h2>
+                                <div className={styles.title2}>전체 대화 내용</div>
+                            </div>
+                        </div> */}
+                        <ResultTabTitle title="전체" subTitle="대화 내용" number="02"/>
                         <div className={styles.scriptContainer}>
                             {scriptData.map((entry, index) => (
                                 <div key={index} className={styles.scriptEntry}>
@@ -132,14 +141,16 @@ function Result() {
             case 'summary':
                 return (
                     <div className={styles.section}>
-                        <h2>역할놀이 대화 내용 요약</h2>
+                        {/* <h2>역할놀이 대화 내용 요약</h2> */}
+                        <ResultTabTitle title="요약" subTitle="대화 내용" number="02"/>
                         <p className={styles.summary}>{conversation_summary}</p>
                     </div>
                 );
             case 'language':
                 return (
                     <div className={styles.section}>
-                        <h2>언어 발달 분석</h2>
+                        {/* <h2>언어 발달 분석</h2> */}
+                        <ResultTabTitle title="언어" subTitle="발달 분석" number="03"/>
                         <div className={styles.progressContainer}>
                             {renderProgressCircle(
                                 ((vocabulary.basic_word_count / (vocabulary.basic_word_count + vocabulary.new_word_count)) * 100).toFixed(2),
@@ -169,7 +180,8 @@ function Result() {
             case 'emotion':
                 return (
                     <div className={styles.section}>
-                        <h2>감정 발달 분석</h2>
+                        {/* <h2>감정 발달 분석</h2> */}
+                        <ResultTabTitle title="감정" subTitle="발달 분석" number="03"/>
                         <div className={styles.progressContainer}>
                             {renderProgressCircle(
                                 ((emotionalVocabulary.basic_word_count / (emotionalVocabulary.basic_word_count + emotionalVocabulary.new_word_count)) * 100).toFixed(2),
@@ -199,7 +211,8 @@ function Result() {
             case 'interaction':
                 return (
                     <div className={styles.section}>
-                        <h2>상호작용 분석</h2>
+                        <ResultTabTitle title="" subTitle="상호작용 분석" number="04"/>
+                        {/* <h2>상호작용 분석</h2> */}
                         {renderInteractionChart()}
                         <p className={styles.summary}><strong>대화 주도성 분석:</strong> {interaction_summary}</p>
                     </div>
@@ -207,7 +220,8 @@ function Result() {
             case 'evaluation':
                 return (
                     <div className={styles.section}>
-                        <h2>종합 평가</h2>
+                        <ResultTabTitle title="" subTitle="종합 평가" number="05"/>
+                        {/* <h2>종합 평가</h2> */}
                         <img src='/assets/result/resultPage2.png' className={styles.greatImage} />
                         <p className={styles.summary}>{comprehensive_results}</p>
                     </div>
@@ -302,43 +316,53 @@ function Result() {
                                 className={activeTab === 'basicInfo' ? styles.active : ''}
                                 onClick={() => setActiveTab('basicInfo')}
                             >
-                                - 기본 정보
+                                01. 기본 정보
+                            </button>
+                            <button
+                                className={styles.subTab}
+                            >
+                                02. 대화 내용
                             </button>
                             <button
                                 className={activeTab === 'fullScript' ? styles.active : ''}
                                 onClick={() => setActiveTab('fullScript')}
                             >
-                                - 전체 대화 내용
+                                &nbsp;&nbsp;&nbsp;&nbsp; - 전체
                             </button>
                             <button
                                 className={activeTab === 'summary' ? styles.active : ''}
                                 onClick={() => setActiveTab('summary')}
                             >
-                            &nbsp;&nbsp;&nbsp;&nbsp;- 요약
+                                &nbsp;&nbsp;&nbsp;&nbsp; - 요약
+                            </button>
+                            <button
+                                className={styles.subTab}
+                            >
+                                03. 발달 분석
                             </button>
                             <button
                                 className={activeTab === 'language' ? styles.active : ''}
                                 onClick={() => setActiveTab('language')}
                             >
-                                - 언어 발달 분석
+                                &nbsp;&nbsp;&nbsp;&nbsp; - 언어
                             </button>
                             <button
                                 className={activeTab === 'emotion' ? styles.active : ''}
                                 onClick={() => setActiveTab('emotion')}
                             >
-                                - 감정 발달 분석
+                                &nbsp;&nbsp;&nbsp;&nbsp; - 감정
                             </button>
                             <button
                                 className={activeTab === 'interaction' ? styles.active : ''}
                                 onClick={() => setActiveTab('interaction')}
                             >
-                                - 상호작용 분석
+                                04. 상호작용 분석
                             </button>
                             <button
                                 className={activeTab === 'evaluation' ? styles.active : ''}
                                 onClick={() => setActiveTab('evaluation')}
                             >
-                                - 종합 평가
+                                05. 종합 평가
                             </button>
                         </div>
                     </div>
