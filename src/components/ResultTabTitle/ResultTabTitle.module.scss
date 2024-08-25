@@ -32,13 +32,14 @@
 .subtitle {
     font-size: 20px;
     color: #7c89b0;
-    margin-bottom: 4px;
+    margin-bottom: 7px;
+    // background-color: yellow;
 }
 
 .title {
-    font-size: 36px;
+    font-size: 32px;
     // background-color: pink;
     display: inline;
-    line-height: 0.65; // 추가: 줄 높이를 텍스트 높이와 동일하게 설정
+    line-height: 0.8; // 추가: 줄 높이를 텍스트 높이와 동일하게 설정
     //padding-bottom: 2px; // 추가: 하단에 약간의 여백 추가 (필요에 따라 조정)
 }
