@@ -306,7 +306,7 @@ function Result() {
         <Layout>
             <div className={styles.resultContainer}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>놀이 결과</h1>
+                    <h1 className={styles.title}>역할놀이 결과</h1>
                     <button className={styles.backButton} onClick={() => navigate('/total-result')}>돌아가기</button>
                 </div>
                 <div className={styles.body}>

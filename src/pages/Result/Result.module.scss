@@ -38,6 +38,12 @@
   font-size: 30px;
   padding-left: 10px;
 
+  /* 글씨체에 테두리 효과 */
+    // text-shadow: 1px 1px 0 #000000, /* 아래쪽과 오른쪽에 검은색 그림자 */
+    //              -1px -1px 0 #000000, /* 위쪽과 왼쪽에 검은색 그림자 */
+    //              1px -1px 0 #000000, /* 위쪽과 오른쪽에 검은색 그림자 */
+    //              -1px 1px 0 #000000; /* 아래쪽과 왼쪽에 검은색 그림자 */
+
 }
 
 
@@ -74,18 +80,22 @@
   display: flex;
   flex-direction: column;
 
+  //border: 1px solid white;
+
+
   .subTab {
     // background-color: pink;
     &:hover {
       // background-color: rgba(255, 255, 255, 0.2);
       background-color: transparent;
+
       cursor: default;
     }
   }
 }
 
 .tabMenu button {
-  font-family: 'LaundryGothicBold', sans-serif;
+  font-family: 'LaundryGothicRegular', sans-serif;
   font-size: 17px;
   background-color: transparent;
   color: white;
@@ -101,9 +111,9 @@
   }
 
   &.active {
-    background-color: rgba(255, 255, 255, 0.3); /* Active tab background color */
+    background-color: rgba(255, 255, 255, 0.2); /* Active tab background color */
     color: white; /* Active tab text color */
-    font-weight: bold;
+    //font-weight: bold;
     /* 글씨체에 테두리 효과 */
     // text-shadow: 1px 1px 0 #000000, /* 아래쪽과 오른쪽에 검은색 그림자 */
     //              -1px -1px 0 #000000, /* 위쪽과 왼쪽에 검은색 그림자 */
@@ -265,7 +275,7 @@
 
 .circle {
   fill: none;
-  stroke: #4caf50;
+  stroke: #297EFF;
   stroke-width: 2.8;
   stroke-linecap: round;
   transition: stroke-dasharray 0.3s ease;
@@ -298,8 +308,11 @@
 }
 
 .wordButton {
-  background-color: #f0f8ff;
-  background-color: rgba(130, 73, 221, 0.08);
+  //background-color: #f0f8ff;
+  //background-color: rgba(130, 73, 221, 0.08);
+  //background-color: #FFF9F9;
+  background-color: rgba(255, 204, 204, 0.5); /* 50% 투명도 */
+
   color: #333;
   padding: 8px 12px;
   border-radius: 20px;
@@ -382,6 +395,7 @@
 .childLabel, .aiLabel {
   font-weight: bold;
   color: #333;
+  font-size: 20px;
 }
 
 .greatImage {
