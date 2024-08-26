@@ -99,7 +99,8 @@ function VoiceManage() {
                             <div className={styles.features}>
                                 {character.features.join(' ')}
                                 <button onClick={() => playVoice(character.voice, character.text)} className={styles.voiceButton}>
-                                    ▶ 소개 듣기 
+                                    소개 듣기
+                                    <img src="/assets/voice/voiceStartImg.svg" alt="Play" className={styles.playIcon} />
                                 </button>
                             </div>
                         </div>
