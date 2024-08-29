@@ -483,6 +483,7 @@
 }
 
 .userLabel {
+  font-size: 17px;
   align-self: flex-end; /* Align user label to the right */
   font-weight: bold;
   color: #006064; /* Darker text color for user */
@@ -491,6 +492,7 @@
 }
 
 .aiLabel {
+  font-size: 17px;
   align-self: flex-start; /* Align AI label to the left */
   font-weight: bold;
   color: #f57f17; /* Darker text color for AI */
@@ -499,6 +501,7 @@
 }
 
 .userBubble {
+  font-size: 15px;
   align-self: flex-end; /* Align user messages to the right */
   background-color: #e0f7fa; /* Light blue for user messages */
   color: #006064; /* Darker text color for contrast */
@@ -511,6 +514,7 @@
 }
 
 .aiBubble {
+  font-size: 15px;
   align-self: flex-start; /* Align AI messages to the left */
   background-color: #fff9c4; /* Light yellow for AI messages */
   background-color: #DDE0E7;
